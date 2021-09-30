@@ -14,27 +14,25 @@ import './Menu.scss';
 export const Menu = () => { 
   const history = useHistory();
   const [showAll, setShowAll] = useState(true);
-  const [showBreakfast, setShowBreakfast] = useState(false);
-  const [showRestOfTheDay, setShowRestOfTheDay] = useState(false);
-  const [showFood, setShowFood] = useState(false);
-  const [showDrinks, setShowDrinks] = useState(false);
+  const [filteredMenu, setFilteredMenu] = useState([]);
+
+  const [modalData, setModalData] = useState({});
   const [showIngredients, setShowIngredients] = useState(false);
-  const [productId, setProductId] = useState('');
-  const productsToPrint = Object.keys(products);
+  
 
-  const filterProducts = (condition, value) => {
-    const filteredProductsNames = [];
-    const  filteredProducts = Object.entries(products).filter((product) => product[1][condition].includes(value));
-    filteredProductsNames.push(filteredProducts.map((nome) => nome[0]));
-    return filteredProductsNames[0];
+  const filterMenuButtons = (productProp, value) => {
+    const filteredMenu = products.filter((product) => product[productProp] === value);
+    return filteredMenu;
   }
 
-  const getProductId = (event) => {
-    const id = (event.target.parentNode.id) ;
-      setProductId({productId :id});
-      setShowIngredients(true);
-      document.body.style.overflow = "hidden";
-  }
+  const importMenuImages = (files) => {
+    let importedImages = {};
+    files.keys().map(imgPath => importedImages[imgPath.replace('./', '').replace('.png', '')] = files(imgPath));
+    return importedImages;  
+  } 
+  const importedImages = importMenuImages(require.context('../../../assets/images-menu', false, /\.(png)$/));
+  products.map(produt => produt.importedImg = importedImages[produt.name].default);
+
 
   return (
     <div className='product-card-div'>
@@ -51,106 +49,55 @@ export const Menu = () => {
             ButtonClass='menu-filter menu-all' 
             children='Alles'
             ButtonOnClick={() =>[
-              setShowAll(true),
-              setShowBreakfast(false),
-              setShowRestOfTheDay(false),
-              setShowFood(false),
-              setShowDrinks(false)
+              setShowAll(true)
             ]}
           />
           <Button 
             ButtonClass='menu-filter menu-petit-dej' 
             children='Morgen'
-            ButtonOnClick={() =>[
-              filterProducts('menu', 'cafe-da-manha'), 
-              setShowAll(false),
-              setShowBreakfast(true),
-              setShowRestOfTheDay(false),
-              setShowFood(false),
-              setShowDrinks(false)
-            ]}
+            ButtonOnClick={() =>[setShowAll(false), setFilteredMenu(filterMenuButtons('menu', 'cafe-da-manha'))]}
           />
           <Button 
             ButtonClass='menu-filter menu-pour-la-journee' 
             children='Dag'
-            ButtonOnClick={() =>[
-              filterProducts('menu', 'dia'), 
-              setShowAll(false),
-              setShowBreakfast(false),
-              setShowRestOfTheDay(true),
-              setShowFood(false),
-              setShowDrinks(false)
-            ]}
+            ButtonOnClick={() =>[setShowAll(false), setFilteredMenu(filterMenuButtons('menu', 'dia'))]}
           />
           <Button 
             ButtonClass='menu-filter menu-to-drink' 
             children='Eten'
-            ButtonOnClick={() =>[
-              filterProducts('setor', 'comida'), 
-              setShowAll(false),
-              setShowBreakfast(false),
-              setShowRestOfTheDay(false),
-              setShowFood(true),
-              setShowDrinks(false)
-            ]}
+            ButtonOnClick={() =>[setShowAll(false), setFilteredMenu(filterMenuButtons('setor', 'comida'))]}
           />
           <Button 
             ButtonClass='menu-filter menu-to-eat' 
             children='Drankje'
-            ButtonOnClick={() =>[
-              filterProducts('setor', 'bebida'), 
-              setShowAll(false),
-              setShowBreakfast(false),
-              setShowRestOfTheDay(false),
-              setShowFood(false),
-              setShowDrinks(true)
-            ]}
+            ButtonOnClick={() =>[setShowAll(false), setFilteredMenu(filterMenuButtons('setor', 'bebida'))]}
           />
         </section>
         <section className='menu-cards-section'>
-          {showAll && 
-            productsToPrint.map((role) => 
+          {showAll 
+          ? products.map((product) => 
             <ProductCard 
-              ButtonOnClick={(event)=> getProductId(event)}
-              Role={role} key={role.toString()} 
+              products={product}
+              ButtonOnClick={(event)=> [
+                setModalData(products.filter(product => product.id === event.target.id)),
+                setShowIngredients(true)]}
             />
-          )}
-          {showBreakfast && 
-            filterProducts('menu', 'cafe-da-manha').map((role) => 
-            <ProductCard 
-              ButtonOnClick={(event)=> getProductId(event)} 
-              Role={role} key={role.toString()}
-            />
-          )}
-          {showRestOfTheDay &&
-            filterProducts('menu', 'dia').map((role) => 
-            <ProductCard 
-              ButtonOnClick={(event)=> getProductId(event)}
-              Role={role} key={role.toString()} 
-            />
-          )}
-          {showFood && 
-            filterProducts('setor', 'comida').map((role) => 
-            <ProductCard 
-              ButtonOnClick={(event)=> getProductId(event)}
-              Role={role} key={role.toString()} 
-            />
-          )}
-          {showDrinks && 
-            filterProducts('setor', 'bebida').map((role) => 
-            <ProductCard 
-              ButtonOnClick={(event)=> getProductId(event)}
-              Role={role} key={role.toString()} 
-            />
-            )}
+          )
+          : filteredMenu.map((product) => 
+          <ProductCard 
+            products={product}
+            ButtonOnClick={(event)=> [
+              setModalData(products.filter(product => product.id === event.target.id)),
+              setShowIngredients(true)]}
+          />
+        )}
         </section>
       </main>
       <section>
       {showIngredients && 
         <MenuModal 
-          Role = 'menu-close-ingredients-modal'
-          ModalTitle = {products[productId.productId].title}
-          ModalContent= {products[productId.productId].ingredientes}
+          ModalTitle = {modalData[0].title}
+          ModalContent= {modalData[0].ingredientes}
           ButtonOnClick={() => {
             setShowIngredients(false)
             document.body.style.overflow = "scroll";

@@ -1,7 +1,8 @@
 import { useState, useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
 
-import { getErrorCase, getTotalOrderBill, getTotalTableBill } from '../../../services/general';
+import { getErrorCase} from '../../../services/general';
+import { getTotalOrderBill, getTotalTableBill } from '../../../services/ordersMath';
 import { getUserById } from '../../../services/users';
 import { getAllOrders, deleteOrder } from '../../../services/orders';
 import { getAllProducts } from '../../../services/products';
@@ -80,7 +81,6 @@ export const Room = () => {
   useEffect(() => {
     setTargetTableOrders(currentOrders.filter((order) => order.table.toString() === targetTableId));
     setTotalTableBill(getTotalTableBill(currentOrders, targetTableId));
-    console.log(currentOrders)
   },[targetTableId, currentOrders]);
   
   const deleteTargetOrder = (orderToBeDeleted) => {
