@@ -3,6 +3,7 @@ import {useState, useEffect} from 'react';
 import { NavbarRoom } from '../../../components/Navbar/Navbar';
 import { CurrentOrder } from '../../../components/CurrentOrder/Current.Order';
 import { DefaultModal } from '../../../components/Modal/Modal';
+import { Button } from '../../../components/Button/Button';
 
 import { getErrorCase } from '../../../services/general';
 import { getTotalOrderBill } from '../../../services/ordersMath';
@@ -24,22 +25,24 @@ export const OrdersDelivered = () => {
     Object.keys(data).includes('code') && setModal(true);
   }
 
-  useEffect(() => {
-    getAllOrders(token)
-      .then(responseJson => {
-        handleAPIErrors(responseJson);
+  getAllOrders(token)
+    .then(responseJson => {
+      handleAPIErrors(responseJson);
         
-        const menu = (JSON.parse(localStorage.getItem('menu')));
-        getTotalOrderBill(responseJson, menu);
+      const menu = (JSON.parse(localStorage.getItem('menu')));
+      getTotalOrderBill(responseJson, menu);
        
-        responseJson.map((order) => 
-          getUserById(token, order.user_id)
-          .then((response) => {
-            order.waitress = response.name
-            setCurrentOrders(responseJson);
-          })
-        )       
-      })
+      responseJson.map((order) => 
+        getUserById(token, order.user_id)
+        .then((response) => {
+          order.waitress = response.name
+          setCurrentOrders(responseJson);
+        })
+      )       
+    });
+
+  useEffect(() => {
+   getAllOrders(token)
     },[token]);
 
     useEffect(() => {
@@ -70,10 +73,11 @@ export const OrdersDelivered = () => {
       <header>
         <NavbarRoom/>
       </header>
+      <Button  ButtonClass='kitchen-get-orders' children='Carregar Pedidos' ButtonOnClick={() => getAllOrders(token)}/>
       <main className='order-status-main'>
         <section className='current-orders-section'>
           {ordersToPrint.length > 0 &&   
-            ordersToPrint.sort((a,b) => a.id - b.id).map((order) => 
+            ordersToPrint.sort((a,b) => b.id - a.id).map((order) => 
               <CurrentOrder
                 key={order.id}
                 order={order}

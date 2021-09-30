@@ -28,7 +28,7 @@ export const DefaultModal = ({Type, ModalContent, ButtonChildren, ButtonOnClick,
   )
 }
 
-export const TableOrdersModal = ({orders, FirstButtonClick, SecondButtonClick, ButtonDeleteOrder, TableTotalBill}) => {
+export const TableOrdersModal = ({orders, FirstButtonClick,  OrderDeliveredButton, SecondButtonClick, ButtonDeleteOrder, TableTotalBill}) => {
 
   return (
     <section>
@@ -42,6 +42,7 @@ export const TableOrdersModal = ({orders, FirstButtonClick, SecondButtonClick, B
               order={order}
               ButtonId={order.id}
               ButtonDeleteOrder={ButtonDeleteOrder}
+              OrderDeliveredButton={ OrderDeliveredButton}
             />
           )}
           <p className='room-orders-modal-table-bill-p'>Total da Mesa R$: &nbsp;{TableTotalBill}</p>

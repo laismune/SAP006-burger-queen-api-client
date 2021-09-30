@@ -4,7 +4,7 @@ import { useHistory } from 'react-router-dom';
 import { getErrorCase} from '../../../services/general';
 import { getTotalOrderBill, getTotalTableBill } from '../../../services/ordersMath';
 import { getUserById } from '../../../services/users';
-import { getAllOrders, deleteOrder } from '../../../services/orders';
+import { getAllOrders, deleteOrder, changeOrderStatus } from '../../../services/orders';
 import { getAllProducts } from '../../../services/products';
 import { tables } from '../../../data/tables'
 import { titleCorrespondance } from '../../../data/titleCorrespondance';
@@ -93,6 +93,20 @@ export const Room = () => {
     })
   }
 
+
+  const changeTargetOrderStatus = (id, status) => {
+    changeOrderStatus(id, token, status)
+    .then((responseJson) => {
+      console.log(id)
+      handleAPIErrors(responseJson);
+      const targetOrder = currentOrders.filter((order) => order.id === responseJson.id);
+      targetOrder[0].status = 'Entregue';
+      const ordersWithoutTargetOrder = currentOrders.filter((order) => order.id !== responseJson.id);
+      const newOrders = [...ordersWithoutTargetOrder, targetOrder[0]];
+      setCurrentOrders([...newOrders]);
+    })
+  }
+
   return (
     <div className='room-div'>
       <header>
@@ -132,6 +146,7 @@ export const Room = () => {
         <TableOrdersModal 
           orders={targetTableOrders}
           TableTotalBill={totalTableBill}
+          OrderDeliveredButton = {(event) => changeTargetOrderStatus(event.target.id, 'Entregue')}
           FirstButtonClick={() => setFullTableModal(false)}
           SecondButtonClick={() => [setModalContent(modalContent => 
             ({...modalContent, 

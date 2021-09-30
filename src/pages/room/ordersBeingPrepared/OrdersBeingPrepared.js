@@ -3,6 +3,7 @@ import {useState, useEffect} from 'react';
 import { NavbarRoom } from '../../../components/Navbar/Navbar';
 import { CurrentOrder } from '../../../components/CurrentOrder/Current.Order';
 import { DefaultModal } from '../../../components/Modal/Modal';
+import { Button } from '../../../components/Button/Button';
 
 import { getErrorCase } from '../../../services/general';
 import { getTotalOrderBill } from '../../../services/ordersMath';
@@ -23,7 +24,6 @@ export const OrdersBeingPrepared = () => {
     Object.keys(data).includes('code') && setModal(true);
   }
 
-  useEffect(() => {
     getAllOrders(token)
       .then(responseJson => {
         handleAPIErrors(responseJson);
@@ -38,9 +38,13 @@ export const OrdersBeingPrepared = () => {
             setCurrentOrders(responseJson);
           })
         )       
-      })
+      });
+
+    useEffect(() => {
+      getAllOrders(token)
     },[token]);
 
+      
     useEffect(() => {
       setOrdersToPrint(currentOrders.filter((order) => order.status === 'pending'))
     },[currentOrders]);
@@ -81,10 +85,11 @@ export const OrdersBeingPrepared = () => {
       <header>
         <NavbarRoom/>
       </header>
+      <Button  ButtonClass='kitchen-get-orders' children='Carregar Pedidos' ButtonOnClick={() => getAllOrders(token)}/>
       <main className='order-status-main'>
         <section className='current-orders-section'>
           {ordersToPrint.length > 0 &&   
-            ordersToPrint.sort((a,b) => a.id - b.id).map((order) => 
+            ordersToPrint.sort((a,b) => b.id - a.id).map((order) => 
               <CurrentOrder
                 key={order.id}
                 order={order}
