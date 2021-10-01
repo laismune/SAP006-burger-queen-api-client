@@ -31,7 +31,7 @@ export const orderAge = (timeInSeconds) => {
   } if (timeInSeconds < 31536000) {
     const timeInMonths = Math.round(timeInSeconds / 2628288);
     return `há ${timeInMonths} m.`;
-  } if (timeInSeconds === 31536000) {
+  } if (timeInSeconds > 31536000) {
     const timeInYears = Math.round(timeInSeconds / 31536000);
     return `há ${timeInYears} a.`;
   }
@@ -56,7 +56,7 @@ export const orderProcessAge = (timeInSeconds) => {
   } if (timeInSeconds < 31536000) {
     const timeInMonths = Math.round(timeInSeconds / 2628288);
     return `${timeInMonths} m.`;
-  } if (timeInSeconds === 31536000) {
+  } if (timeInSeconds > 31536000) {
     const timeInYears = Math.round(timeInSeconds / 31536000);
     return `${timeInYears} a.`;
   }
