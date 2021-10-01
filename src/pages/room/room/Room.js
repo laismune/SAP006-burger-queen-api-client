@@ -62,7 +62,7 @@ export const Room = () => {
         
         const menu = (JSON.parse(localStorage.getItem('menu')));
         getTotalOrderBill(responseJson, menu);
-       
+       console.log(responseJson)
         responseJson.map((order) => 
           getUserById(token, order.user_id)
           .then((response) => {
