@@ -5,7 +5,7 @@ import './NotFound.scss'
 
 export const NotFound = () => {
   return (
-  <main className = 'not-found-page'>
+  <main className = 'not-found-page' data-testid='not-found-page'>
     <h1> ERROR 404 </h1>
     <img src = {logoBerg} alt = 'Logo Berg'/>
     <h2> Desculpe-nos, mas esta página não foi encontrada.</h2>

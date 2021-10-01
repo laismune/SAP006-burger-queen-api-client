@@ -5,7 +5,7 @@ import './Modal.scss';
 
 export const DefaultModal = ({Type, ModalContent, ButtonChildren, ButtonOnClick, ButtonSecondAuthModalOptionChildren, ButtOnClickSecondAuthModalOption}) => {
   return (
-    <section className='modal-background'>
+    <section className='modal-background' data-testid='default-modal'>
       <div className='modal-container'>
         <p className='modal-content'>{ModalContent}</p>
         <div className='standard-two-options-modal-buttons-div'>
@@ -31,7 +31,7 @@ export const DefaultModal = ({Type, ModalContent, ButtonChildren, ButtonOnClick,
 export const TableOrdersModal = ({orders, FirstButtonClick,  OrderDeliveredButton, SecondButtonClick, ButtonDeleteOrder, TableTotalBill}) => {
 
   return (
-    <section>
+    <section data-testid='table-orders-modal'>
       <section className='modal-background'>
         <div className='modal-container modal-container-room-table-orders'>
           {orders.length > 0 && 
@@ -58,7 +58,7 @@ export const TableOrdersModal = ({orders, FirstButtonClick,  OrderDeliveredButto
 
 export const MenuModal = ({ModalTitle, ModalContent, ButtonOnClick}) => {
   return (
-    <section className='modal-background'>
+    <section className='modal-background' data-testid='menu-modal'>
       <div className='modal-container'>
         <p className='menu-modal-title'> {ModalTitle} </p>
         <p className='menu-modal-content'> {ModalContent} </p>

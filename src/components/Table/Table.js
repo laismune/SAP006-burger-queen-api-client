@@ -7,7 +7,7 @@ import { Button } from '../Button/Button';
 export const Table = ({Role, ButtonOnClick, ButtonId}) => { 
 
   return (
-    <div className='room-table-div'>
+    <div className='room-table-div' data-testid='table-div'>
       <Button Role={Role} ButtonOnClick={ButtonOnClick} ButtonId={ButtonId}/>
     </div>
     )
