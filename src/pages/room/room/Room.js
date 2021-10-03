@@ -86,7 +86,6 @@ export const Room = () => {
   const changeTargetOrderStatus = (id, status) => {
     changeOrderStatus(id, token, status)
     .then((responseJson) => {
-      console.log(id)
       handleAPIErrors(responseJson);
       const targetOrder = currentOrders.filter((order) => order.id === responseJson.id);
       targetOrder[0].status = 'Entregue';

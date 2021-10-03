@@ -33,16 +33,15 @@ export const OrdersBeingPrepared = () => {
       })
     },[token]);
     
-
-    useEffect(() => {
-      setOrdersToPrint(currentOrders.filter((order) => order.status === 'pending'))
-    },[currentOrders]);
+  useEffect(() => {
+    setOrdersToPrint(currentOrders.filter((order) => order.status === 'pending'))
+  },[currentOrders]);
     
     const deleteTargetOrder = (orderToBeDeleted) => {
       deleteOrder(orderToBeDeleted, token)
       .then(responseJson => {
         handleAPIErrors(responseJson);
-        const newOrders = currentOrders.filter((order) => order.id !== responseJson.id)
+        const newOrders = currentOrders.filter((order) => order.id !== responseJson.id);
         setCurrentOrders([...newOrders])
       })
     }
