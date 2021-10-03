@@ -1,18 +1,24 @@
-
-import React from 'react';
+import { useState, useEffect } from 'react';
 
 import { Button} from '../Button/Button'
 import { OrderTimeSection } from '../OrderTimeSection/OrderTimeSection'
 import { OrderHeaderDiv } from '../OrderHeaderDiv/OrderHeaderDiv'
 import { OrderListColumn } from '../OrderListColumn/OrderListColumn';
 import { timeToProcess, orderCurrentAge } from '../../services/general';
+import { getUserById } from '../../services/users'
 
 import './CurrentOrder.scss';
 
-export const CurrentOrder = ({order, ButtonDeleteOrder, OrderReadyButton, OrderDeliveredButton, WaitressName}) => { 
-
+export const CurrentOrder = ({order, ButtonDeleteOrder, OrderReadyButton, OrderDeliveredButton }) => { 
+  const [waitress, setWaitress] = useState('');
+  const token = localStorage.getItem('currentEmployeeToken');
   const role = localStorage.getItem('currentEmployeeRole');
-
+  
+  useEffect (() => {
+      getUserById(token, order.user_id)
+      .then((responseJson) => setWaitress(responseJson.name));
+  })
+ 
   return (
     <div className= {
       (order.status === 'Em Preparo' || order.status === 'pending') 
@@ -28,7 +34,7 @@ export const CurrentOrder = ({order, ButtonDeleteOrder, OrderReadyButton, OrderD
       </section>
       <section className='current-order-header current-order-header-second'>
         <OrderHeaderDiv Title='Status' Value={order.status === 'pending' ? 'Em preparo' : order.status}/> 
-        <OrderHeaderDiv Title='Responsável' Value={order.waitress}/>
+        <OrderHeaderDiv Title='Responsável' Value={waitress}/>
         <OrderHeaderDiv Title='Pedido criado' Value={orderCurrentAge(order.createdAt)}/>
       </section>
       {order.status === 'pending' && <OrderTimeSection Time1='-'  Time2='-' Time3='-' />}

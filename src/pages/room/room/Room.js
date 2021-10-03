@@ -57,8 +57,7 @@ export const Room = () => {
   useEffect(() => {
     getAllOrders(token)
       .then(responseJson => {
-        handleAPIErrors(responseJson);
-        
+        handleAPIErrors(responseJson);        
         const menu = (JSON.parse(localStorage.getItem('menu')));
         getTotalOrderBill(responseJson, menu);
         setCurrentOrders(responseJson);   
