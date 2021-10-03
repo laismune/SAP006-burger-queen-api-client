@@ -71,7 +71,6 @@ export function InputContentUserData ({Subject, Error, InputValue, InputOnChange
         required
         autoComplete='off'
         data-content={Subject}
-
         className={authInput[Subject].InputClass}
         type={authInput[Subject].InputType}       
         placeholder={authInput[Subject].InputPlaceholder}

@@ -3,7 +3,6 @@ import { useHistory } from 'react-router-dom';
 
 import { getErrorCase} from '../../../services/general';
 import { getTotalOrderBill, getTotalTableBill } from '../../../services/ordersMath';
-import { getUserById } from '../../../services/users';
 import { getAllOrders, deleteOrder, changeOrderStatus } from '../../../services/orders';
 import { getAllProducts } from '../../../services/products';
 import { tables } from '../../../data/tables'
@@ -62,21 +61,14 @@ export const Room = () => {
         
         const menu = (JSON.parse(localStorage.getItem('menu')));
         getTotalOrderBill(responseJson, menu);
-       console.log(responseJson)
-        responseJson.map((order) => 
-          getUserById(token, order.user_id)
-          .then((response) => {
-            order.waitress = response.name
-            setCurrentOrders(responseJson);
-          })
-        )       
+        setCurrentOrders(responseJson);   
       })
     },[token]);
     
-    useEffect(() => {
-      tables.map((table) => table.orders = currentOrders.filter((order) => order.table === table.table));
-      setTablesWithOrders(tables);
-    }, [currentOrders])
+  useEffect(() => {
+    tables.map((table) => table.orders = currentOrders.filter((order) => order.table === table.table));
+    setTablesWithOrders(tables);
+  }, [currentOrders])
 
   useEffect(() => {
     setTargetTableOrders(currentOrders.filter((order) => order.table.toString() === targetTableId));
@@ -86,13 +78,11 @@ export const Room = () => {
   const deleteTargetOrder = (orderToBeDeleted) => {
     deleteOrder(orderToBeDeleted, token)
     .then(responseJson => {
-      console.log(responseJson.id)
       handleAPIErrors(responseJson);
       const newOrders = currentOrders.filter((order) => order.id !== responseJson.id)
       setCurrentOrders([...newOrders])
     })
   }
-
 
   const changeTargetOrderStatus = (id, status) => {
     changeOrderStatus(id, token, status)
@@ -105,6 +95,17 @@ export const Room = () => {
       const newOrders = [...ordersWithoutTargetOrder, targetOrder[0]];
       setCurrentOrders([...newOrders]);
     })
+  }
+
+  const cleanTheTable = () => {
+    targetTableOrders.map((order) => 
+      deleteOrder(order.id, token)
+      .then(responseJson => {
+        handleAPIErrors(responseJson)
+      })
+    );
+    const newOrders = currentOrders.filter((order) => order.table.toString() !== targetTableId);
+    setCurrentOrders([...newOrders]);
   }
 
   return (
@@ -153,7 +154,7 @@ export const Room = () => {
               Type: 'two-buttons-modal',
               Text: 'Você tem certeza que deseja excluir todos os pedidos desta mesa?',
               ButtonSecondClick: () => {
-                targetTableOrders.map((order) => deleteTargetOrder(order.id)) ;
+                cleanTheTable() ;
                 setModalContent(modalContent => 
                   ({...modalContent, 
                     Type: 'one-button-modal',

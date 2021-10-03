@@ -1,4 +1,6 @@
 /* eslint-disable no-sequences */
+
+
 export const getTotalOrderBill = (orders, menu) => {
   orders.map((order) => order.Products.map((element) => element = Object.assign(element, Object.assign({}, ...menu.filter((product) =>  product.id === element.id)) ) ));
   orders.map((order) => order.Products.map((element) => element.total = element.price * element.qtd));

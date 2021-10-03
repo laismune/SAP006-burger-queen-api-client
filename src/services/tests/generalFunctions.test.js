@@ -1,4 +1,4 @@
-import { getErrorCase, orderAge, orderProcessAge, timeToProcess, orderCurrentAge } from "./general";
+import { getErrorCase, orderAge, orderProcessAge, timeToProcess, orderCurrentAge } from "../general";
 
 describe('getErrorCase', () => {
   it('getErrorCase should be a function', () => {
@@ -160,8 +160,8 @@ describe('orderCurrentAge', () => {
     expect(typeof orderCurrentAge).toBe('function')
   })
 
-  it('when creation time is equal to 2021-09-30T20:33:31.607Z, the orderCurrent age should be', () => {
-    const result = orderCurrentAge('2021-09-30T20:33:31.607Z')
-    expect(result).toBe('há 5 h.')
+  it('when creation time is equal to 2000-09-30T20:33:31.607Z, the orderCurrent age should be', () => {
+    const result = orderCurrentAge('2000-09-30T20:33:31.607Z')
+    expect(result).toBe('há 21 a.')
   })
 })

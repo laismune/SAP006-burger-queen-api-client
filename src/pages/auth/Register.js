@@ -114,6 +114,7 @@ export const Register = () => {
         <div className='auth-content-div'>  
           <form className='auth-form'>
             <InputContentUserData 
+              data-testid='input-name'
               Subject='name'
               Error={nameErrorInput}
               InputValue = {name}
