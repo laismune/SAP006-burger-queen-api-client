@@ -1,9 +1,9 @@
 import { useState, useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
 
-import { getErrorCase, getTotalOrderBill, getTotalTableBill } from '../../../services/general';
-import { getUserById } from '../../../services/users';
-import { getAllOrders, deleteOrder } from '../../../services/orders';
+import { getErrorCase} from '../../../services/general';
+import { getTotalOrderBill, getTotalTableBill } from '../../../services/ordersMath';
+import { getAllOrders, deleteOrder, changeOrderStatus } from '../../../services/orders';
 import { getAllProducts } from '../../../services/products';
 import { tables } from '../../../data/tables'
 import { titleCorrespondance } from '../../../data/titleCorrespondance';
@@ -57,40 +57,53 @@ export const Room = () => {
   useEffect(() => {
     getAllOrders(token)
       .then(responseJson => {
-        handleAPIErrors(responseJson);
-        
+        handleAPIErrors(responseJson);        
         const menu = (JSON.parse(localStorage.getItem('menu')));
         getTotalOrderBill(responseJson, menu);
-       
-        responseJson.map((order) => 
-          getUserById(token, order.user_id)
-          .then((response) => {
-            order.waitress = response.name
-            setCurrentOrders(responseJson);
-          })
-        )       
+        setCurrentOrders(responseJson);   
       })
     },[token]);
     
-    useEffect(() => {
-      tables.map((table) => table.orders = currentOrders.filter((order) => order.table === table.table));
-      setTablesWithOrders(tables);
-    }, [currentOrders])
+  useEffect(() => {
+    tables.map((table) => table.orders = currentOrders.filter((order) => order.table === table.table));
+    setTablesWithOrders(tables);
+  }, [currentOrders])
 
   useEffect(() => {
     setTargetTableOrders(currentOrders.filter((order) => order.table.toString() === targetTableId));
     setTotalTableBill(getTotalTableBill(currentOrders, targetTableId));
-    console.log(currentOrders)
   },[targetTableId, currentOrders]);
   
   const deleteTargetOrder = (orderToBeDeleted) => {
     deleteOrder(orderToBeDeleted, token)
     .then(responseJson => {
-      console.log(responseJson.id)
       handleAPIErrors(responseJson);
       const newOrders = currentOrders.filter((order) => order.id !== responseJson.id)
       setCurrentOrders([...newOrders])
     })
+  }
+
+  const changeTargetOrderStatus = (id, status) => {
+    changeOrderStatus(id, token, status)
+    .then((responseJson) => {
+      handleAPIErrors(responseJson);
+      const targetOrder = currentOrders.filter((order) => order.id === responseJson.id);
+      targetOrder[0].status = 'Entregue';
+      const ordersWithoutTargetOrder = currentOrders.filter((order) => order.id !== responseJson.id);
+      const newOrders = [...ordersWithoutTargetOrder, targetOrder[0]];
+      setCurrentOrders([...newOrders]);
+    })
+  }
+
+  const cleanTheTable = () => {
+    targetTableOrders.map((order) => 
+      deleteOrder(order.id, token)
+      .then(responseJson => {
+        handleAPIErrors(responseJson)
+      })
+    );
+    const newOrders = currentOrders.filter((order) => order.table.toString() !== targetTableId);
+    setCurrentOrders([...newOrders]);
   }
 
   return (
@@ -132,13 +145,14 @@ export const Room = () => {
         <TableOrdersModal 
           orders={targetTableOrders}
           TableTotalBill={totalTableBill}
+          OrderDeliveredButton = {(event) => changeTargetOrderStatus(event.target.id, 'Entregue')}
           FirstButtonClick={() => setFullTableModal(false)}
           SecondButtonClick={() => [setModalContent(modalContent => 
             ({...modalContent, 
               Type: 'two-buttons-modal',
               Text: 'Você tem certeza que deseja excluir todos os pedidos desta mesa?',
               ButtonSecondClick: () => {
-                targetTableOrders.map((order) => deleteTargetOrder(order.id)) ;
+                cleanTheTable() ;
                 setModalContent(modalContent => 
                   ({...modalContent, 
                     Type: 'one-button-modal',

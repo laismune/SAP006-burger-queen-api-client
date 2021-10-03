@@ -71,7 +71,6 @@ export function InputContentUserData ({Subject, Error, InputValue, InputOnChange
         required
         autoComplete='off'
         data-content={Subject}
-
         className={authInput[Subject].InputClass}
         type={authInput[Subject].InputType}       
         placeholder={authInput[Subject].InputPlaceholder}
@@ -88,13 +87,22 @@ export function InputContentUserData ({Subject, Error, InputValue, InputOnChange
         src={authInput[Subject].IconSrc}
         alt={authInput[Subject].IconAlt}
       />
-      {Subject === 'password' || Subject === 'confirmPassword' ?
-        <Button 
-          ButtonClass={showPassword ? 
-          'auth-show-or-not-password-button auth-show-password-button' : 
-          'auth-show-or-not-password-button auth-not-show-password-button'}
-          ButtonOnClick={authInput[Subject].ButtonOnClick}
-       /> : null
+      {Subject === 'password' && 
+      <Button 
+        ButtonClass={showPassword ? 
+        'auth-show-or-not-password-button auth-show-password-button' : 
+        'auth-show-or-not-password-button auth-not-show-password-button'}
+        ButtonOnClick={authInput[Subject].ButtonOnClick}
+      />
+        }
+      {Subject === 'confirmPassword' && 
+      <Button 
+        ButtonClass={showConfirmPassword? 
+        'auth-show-or-not-password-button auth-show-password-button' : 
+        'auth-show-or-not-password-button auth-not-show-password-button'}
+        ButtonOnClick={authInput[Subject].ButtonOnClick}
+      />
+
       }  
     </div>
   )

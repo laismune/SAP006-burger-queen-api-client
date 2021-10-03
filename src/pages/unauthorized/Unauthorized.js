@@ -18,7 +18,7 @@ export const Unauthorized = () => {
   }
 
   return (
-  <main className = 'unauthorized-main'>
+  <main className = 'unauthorized-main' data-testid='unauthorized-page'>
     <h1> ERROR 401 </h1>
     <img src = {logoBerg} alt = 'Logo Berg'/>
     <h2> Desculpe-nos, mas você não possui permissão para acessar esta seção :( <br/>

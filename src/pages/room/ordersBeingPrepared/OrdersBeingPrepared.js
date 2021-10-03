@@ -3,8 +3,10 @@ import {useState, useEffect} from 'react';
 import { NavbarRoom } from '../../../components/Navbar/Navbar';
 import { CurrentOrder } from '../../../components/CurrentOrder/Current.Order';
 import { DefaultModal } from '../../../components/Modal/Modal';
+import { Button } from '../../../components/Button/Button';
 
 import { getErrorCase } from '../../../services/general';
+import { getTotalOrderBill } from '../../../services/ordersMath';
 import { getAllOrders, deleteOrder, changeOrderStatus } from '../../../services/orders';
 
 import './OrderStatusGeneral.scss'
@@ -12,9 +14,8 @@ import './OrderStatusGeneral.scss'
 export const OrdersBeingPrepared = () => { 
   const token = localStorage.getItem('currentEmployeeToken');
 
-  const [orderToBeDeleted, setOrderToBeDeleted] = useState('');
   const [currentOrders, setCurrentOrders] = useState([]);
-
+  const [ordersToPrint, setOrdersToPrint] = useState([]);
 
   const handleAPIErrors = (data) => {
     const result = getErrorCase(data.code);
@@ -24,24 +25,36 @@ export const OrdersBeingPrepared = () => {
 
   useEffect(() => {
     getAllOrders(token)
-    .then(responseJson => {
-      const filteredOrders = responseJson.filter((order) => order.status === 'pending');
-      handleAPIErrors(responseJson);
-      setCurrentOrders(filteredOrders); 
-    })  
-  }, [token]);
-
-  const deleteTargetOrder = () => {
-    deleteOrder(orderToBeDeleted, token)
-    .then(responseJson => {
-      handleAPIErrors(responseJson);
-    })
-  }
+      .then(responseJson => {
+        handleAPIErrors(responseJson);        
+        const menu = (JSON.parse(localStorage.getItem('menu')));
+        getTotalOrderBill(responseJson, menu);
+        setCurrentOrders(responseJson);   
+      })
+    },[token]);
+    
+  useEffect(() => {
+    setOrdersToPrint(currentOrders.filter((order) => order.status === 'pending'))
+  },[currentOrders]);
+    
+    const deleteTargetOrder = (orderToBeDeleted) => {
+      deleteOrder(orderToBeDeleted, token)
+      .then(responseJson => {
+        handleAPIErrors(responseJson);
+        const newOrders = currentOrders.filter((order) => order.id !== responseJson.id);
+        setCurrentOrders([...newOrders])
+      })
+    }
 
   const changeTargetOrderStatus = (id, status) => {
     changeOrderStatus(id, token, status)
     .then((responseJson) => {
       handleAPIErrors(responseJson);
+      const targetOrder = currentOrders.filter((order) => order.id === responseJson.id);
+      targetOrder[0].status = 'Pronto';
+      const ordersWithoutTargetOrder = currentOrders.filter((order) => order.id !== responseJson.id);
+      const newOrders = [...ordersWithoutTargetOrder, targetOrder[0]];
+      setCurrentOrders([...newOrders]);
     })
   }
 
@@ -60,10 +73,11 @@ export const OrdersBeingPrepared = () => {
       <header>
         <NavbarRoom/>
       </header>
+      <Button  ButtonClass='kitchen-get-orders' children='Carregar Pedidos' ButtonOnClick={() => getAllOrders(token)}/>
       <main className='order-status-main'>
         <section className='current-orders-section'>
-          {currentOrders.length > 0 &&   
-            currentOrders.sort((a,b) => a.id - b.id).map((order) => 
+          {ordersToPrint.length > 0 &&   
+            ordersToPrint.sort((a,b) => b.id - a.id).map((order) => 
               <CurrentOrder
                 key={order.id}
                 order={order}
@@ -73,16 +87,13 @@ export const OrdersBeingPrepared = () => {
                     Type: 'two-buttons-modal',
                     Text: 'Você tem certeza que deseja deletar este pedido?',
                     ButtonSecondClick: () => {
-                      deleteTargetOrder();
+                      deleteTargetOrder(event.target.id);
                       setModal(false);
                     }
                   })), 
-                  setModal(true), 
-                  setOrderToBeDeleted(event.target.id)
+                  setModal(true),
                 ]}
-                OrderBeingPreparedButton = {() => changeTargetOrderStatus(order.id, 'Em Preparo')}
                 OrderReadyButton = {() => changeTargetOrderStatus(order.id, 'Pronto')}
-                OrderDeliveredButton = {() => changeTargetOrderStatus(order.id, 'Entregue')}
               /> 
             )
           }

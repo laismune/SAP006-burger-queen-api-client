@@ -5,7 +5,7 @@ import './Modal.scss';
 
 export const DefaultModal = ({Type, ModalContent, ButtonChildren, ButtonOnClick, ButtonSecondAuthModalOptionChildren, ButtOnClickSecondAuthModalOption}) => {
   return (
-    <section className='modal-background'>
+    <section className='modal-background' data-testid='default-modal'>
       <div className='modal-container'>
         <p className='modal-content'>{ModalContent}</p>
         <div className='standard-two-options-modal-buttons-div'>
@@ -28,10 +28,10 @@ export const DefaultModal = ({Type, ModalContent, ButtonChildren, ButtonOnClick,
   )
 }
 
-export const TableOrdersModal = ({orders, FirstButtonClick, SecondButtonClick, ButtonDeleteOrder, TableTotalBill}) => {
+export const TableOrdersModal = ({orders, FirstButtonClick,  OrderDeliveredButton, SecondButtonClick, ButtonDeleteOrder, TableTotalBill}) => {
 
   return (
-    <section>
+    <section data-testid='table-orders-modal'>
       <section className='modal-background'>
         <div className='modal-container modal-container-room-table-orders'>
           {orders.length > 0 && 
@@ -42,6 +42,7 @@ export const TableOrdersModal = ({orders, FirstButtonClick, SecondButtonClick, B
               order={order}
               ButtonId={order.id}
               ButtonDeleteOrder={ButtonDeleteOrder}
+              OrderDeliveredButton={ OrderDeliveredButton}
             />
           )}
           <p className='room-orders-modal-table-bill-p'>Total da Mesa R$: &nbsp;{TableTotalBill}</p>
@@ -57,7 +58,7 @@ export const TableOrdersModal = ({orders, FirstButtonClick, SecondButtonClick, B
 
 export const MenuModal = ({ModalTitle, ModalContent, ButtonOnClick}) => {
   return (
-    <section className='modal-background'>
+    <section className='modal-background' data-testid='menu-modal'>
       <div className='modal-container'>
         <p className='menu-modal-title'> {ModalTitle} </p>
         <p className='menu-modal-content'> {ModalContent} </p>

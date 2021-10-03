@@ -9,7 +9,7 @@ import { NewOrderTextInput } from '../../../components/NewOrderTextInput/NewOrde
 import { NewOrderFilterButton, NewOrderProductButton } from '../../../components/NewOrderFilterButton/NewOrderFilterButton';
 
 import { getErrorCase } from '../../../services/general';
-
+import { orderManipulation} from '../../../services/ordersMath'
 import { sendOrderToKitchen, getAllOrders  } from '../../../services/orders';
 
 import './NewOrder.scss';
@@ -19,9 +19,12 @@ export const NewOrder = () => {
 
   const [table, setTable] = useState('');
   const [customer, setCustomerName] = useState('');
+
   const [filteredMenu, setFilteredMenu] = useState([]);
   const [showAllProducts, setShowAllProducts] = useState(true);
+
   const [orderedProducts, setOrderedProducts] = useState([]);
+
   const [currentOrders, setCurrentOrders] = useState([]);
   const [occupiedTables, setOccupiedTables] = useState([]);
 
@@ -38,17 +41,10 @@ export const NewOrder = () => {
   const menu = (JSON.parse(localStorage.getItem('menu')));
   const token = localStorage.getItem('currentEmployeeToken');
 
-  menu.length > 0 && menu.map((product) => product.id = product.id.toString());
-  const productTotals = [];
-  const orderedProductsQuantity = orderedProducts.reduce((acc, curr) => (acc[curr] = (acc[curr] || 0) + 1, acc), {});
-  const orderedProductsData = menu.filter((product) => orderedProducts.includes(product.id));
+  const orderedProductsData = orderManipulation(menu, orderedProducts, 'data');
+  const orderResume = orderManipulation(menu, orderedProducts, 'resume');
+  const orderBill = orderManipulation(menu, orderedProducts, 'bill');
 
-  orderedProductsData.map((product) => product.qtd = orderedProductsQuantity[product.id]);
-  orderedProductsData.map((product) => product.total = [product.qtd]*[product.price]);
-  orderedProductsData.map((product) => productTotals.push(product.total));
-  const bill = productTotals.reduce((acc, curr) => acc + curr, 0);
-
-  const orderResume = orderedProductsData.map(product => ({ id: product.id, qtd:product.qtd.toString()}));
   const orderInformation = { token, customer, table, orderResume};
 
   const handleAPIErrors = (data) => {
@@ -136,8 +132,8 @@ export const NewOrder = () => {
                   ButtonSecondChildren:'Voltar para o salão',
                   ButtonSecondClick: () => history.push('/room')
                 })
-              )
-              setCurrentOrders(currentOrders => [...currentOrders, ...currentOrders])
+              ) 
+              setCurrentOrders(currentOrders => [...currentOrders, responseJson])
             }).then(() => setModal(true)) 
           }
         })
@@ -156,23 +152,17 @@ export const NewOrder = () => {
             ButtonSecondClick: () => history.push('/room')
           })
         )
-        setCurrentOrders(currentOrders => [...currentOrders, ...currentOrders])
+        setCurrentOrders(currentOrders => [...currentOrders, responseJson])
       }).then(() => setModal(true))
-    }
-   
+    } 
   }
-    
-    
-
-
-
-
+  
   return (
     <div>
       <main className='new-order-main'>
         <Button ButtonClass='new-order-go-back-button' ButtonOnClick={() => history.push('/room')}/>
-        <section className='new-order-section'>
-          <div className='new-order-note-div'>
+        <div className='new-order-section'>
+          <section className='new-order-note-div'>
             <fieldset>
               <NewOrderTextInput Label = 'Mesa' onChangeInput={(event)=> setTable(event.target.value)}/>
               <NewOrderTextInput Label = 'Cliente' onChangeInput={(event)=> setCustomerName(event.target.value)}/>
@@ -185,32 +175,27 @@ export const NewOrder = () => {
             <div className='new-order-full-list'>
               {orderedProductsData.map((product) => 
                 <div className='new-order-products-list-content' key={product.id}>
-
                   <p className='new-order-product-list-name'>{product.name}</p>
-
                   <div className='new-order-quantity-div'>
                     <Button ButtonClass='new-order-modify-quantity new-order-modify-quantity-minus' ButtonOnClick={ () => decreaseProductQuantity(product.id)}/>
                     <p className='new-order-product-list-quantity'>{product.qtd}</p>
                     <Button ButtonClass='new-order-modify-quantity new-order-modify-quantity-plus' ButtonOnClick={ () => setOrderedProducts(orderedProducts => [...orderedProducts, product.id])}/>
                   </div>
-
                   <p className='new-order-product-list-price'>{product.total}</p>
                   <Button ButtonClass='new-order-trash' ButtonOnClick={ () => setOrderedProducts(orderedProducts.filter(elements => elements !== product.id))}/>
-                
                 </div>
               )}
             </div>
             <div className='new-order-price'>
-                <h1>Total</h1>
-                <h1>R$ {bill}</h1>
+                <h1>Total</h1><h1>R$ {orderBill}</h1>
             </div>
-          </div>
+          </section>
           <Button 
             ButtonClass='new-order-send-order-to-kitchen' 
             children='Enviar para cozinha' 
             ButtonOnClick={() => checkCustomerData() !== 'Error' && sendOrder()}
           />
-          <div className='new-order-filter-buttons-div'>
+          <section className='new-order-filter-buttons-div'>
             <NewOrderFilterButton children='Alles' ButtonOnClick ={() => 
               setShowAllProducts(true)
             } />
@@ -234,17 +219,17 @@ export const NewOrder = () => {
               setShowAllProducts(false), 
               setFilteredMenu(filterMenuButtons(['type'], 'all-day')), 
             ]} />
-          </div>
-          <div className='new-order-product-buttons-div'>
-            {showAllProducts ?
-              menu.map((product) => 
+          </section>
+          <section className='new-order-product-buttons-div'>
+            {showAllProducts 
+            ? menu.map((product) => 
               <NewOrderProductButton product={product} ButtonOnClick={(event)=> [setOrderedProducts(orderedProducts => [...orderedProducts, event.target.id])]}/>
               ) 
-            :filteredMenu.map((product) => 
+            : filteredMenu.map((product) => 
               <NewOrderProductButton product={product} ButtonOnClick={(event)=> [setOrderedProducts(orderedProducts => [...orderedProducts, event.target.id])]}/>
             )}
-          </div>
-        </section> 
+          </section>
+        </div> 
       </main>
       <section>
         {modal && 

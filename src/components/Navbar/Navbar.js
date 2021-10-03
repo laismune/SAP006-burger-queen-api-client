@@ -22,7 +22,7 @@ export function NavbarRoom () {
 
   return (
     <div>
-      <nav>
+      <nav data-testid='navbar'>
       <section className='navbar-employee-information-div'>
         <Button ButtonClass='navbar-sign-out'  ButtonOnClick={()=> handleLogout()}/>
         <p>Bem vinde {employeeName} :)  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Setor: {employeRole}</p>

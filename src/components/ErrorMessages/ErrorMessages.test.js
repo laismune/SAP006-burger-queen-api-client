@@ -27,4 +27,10 @@ describe('Testing the AuthErrorMessage component', () => {
     expect(queryByTestId('errorMessage')).toHaveClass('auth-error-message-of-role');
   });
 
+  it('Should render the message according to the Subject:', () => {
+    render(<AuthErrorMessages Subject='name'/>)
+    expect(screen.getByText('Por favor, digite um nome válido.')).toBeInTheDocument()
+  })
+
 });
+
