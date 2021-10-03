@@ -8,7 +8,6 @@ import { Button } from '../../components/Button/Button';
 import { getErrorCase } from '../../services/general';
 import { getTotalOrderBill } from '../../services/ordersMath';
 import { getAllOrders, deleteOrder, changeOrderStatus } from '../../services/orders';
-import { getUserById } from '../../services/users';
 import './Kitchen.scss';
 
 export const Kitchen = () => { 
@@ -23,37 +22,28 @@ export const Kitchen = () => {
       Object.keys(data).includes('code') && setModal(true);
     }
 
+  useEffect(() => {
     getAllOrders(token)
+      .then(responseJson => {
+        handleAPIErrors(responseJson);        
+        const menu = (JSON.parse(localStorage.getItem('menu')));
+        getTotalOrderBill(responseJson, menu);
+        setCurrentOrders(responseJson);   
+      })
+    },[token]);
+        
+  useEffect(() => {
+    setOrdersToPrint(currentOrders)
+  },[currentOrders]);
+      
+  const deleteTargetOrder = (orderToBeDeleted) => {
+    deleteOrder(orderToBeDeleted, token)
     .then(responseJson => {
       handleAPIErrors(responseJson);
-      const menu = (JSON.parse(localStorage.getItem('menu')));
-      getTotalOrderBill(responseJson, menu);
-     
-      responseJson.map((order) => 
-        getUserById(token, order.user_id)
-        .then((response) => {
-          order.waitress = response.name
-          setCurrentOrders(responseJson);
-        })
-      )       
-    })
-
-    useEffect(() => {
-      getAllOrders(token)
-      },[token]);
-      
-      useEffect(() => {
-        setOrdersToPrint(currentOrders)
-      },[currentOrders]);
-      
-      const deleteTargetOrder = (orderToBeDeleted) => {
-        deleteOrder(orderToBeDeleted, token)
-        .then(responseJson => {
-          handleAPIErrors(responseJson);
-          const newOrders = currentOrders.filter((order) => order.id !== responseJson.id)
-          setCurrentOrders([...newOrders])
-        })
-      }
+      const newOrders = currentOrders.filter((order) => order.id !== responseJson.id)
+      setCurrentOrders([...newOrders])
+      })
+    }
   
     const changeTargetOrderStatus = (id, status) => {
       changeOrderStatus(id, token, status)

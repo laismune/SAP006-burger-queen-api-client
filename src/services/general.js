@@ -19,9 +19,16 @@ export const orderAge = (timeInSeconds) => {
   } if (timeInSeconds < 3600) {
     const timeInMinutes = Math.round(timeInSeconds / 60);
     return `há ${timeInMinutes} min.`;
-  } if (timeInSeconds < 86400) {
+  } if (timeInSeconds === 3600) {
+    return `há 1 h.`;
+  } if (timeInSeconds < 86400 & timeInSeconds % 3600 === 0) {
     const timeInHours = Math.round(timeInSeconds / 3600);
     return `há ${timeInHours} h.`;
+  }  if (timeInSeconds < 86400 & timeInSeconds % 3600 !== 0) {
+      const timeInHours = Math.trunc(timeInSeconds / 3600);
+      console.log(timeInSeconds/3600)
+      const timeInMinutes = Math.round(timeInSeconds / 60 - (timeInHours*60));
+      return `há ${timeInHours} h e ${timeInMinutes} min.`;
   } if (timeInSeconds < 604800) {
     const timeInDays = Math.round(timeInSeconds / 86400);
     return `há ${timeInDays} d.`;
@@ -48,9 +55,16 @@ export const orderProcessAge = (timeInSeconds) => {
   } if (timeInSeconds < 3600) {
     const timeInMinutes = Math.round(timeInSeconds / 60);
     return `${timeInMinutes} min.`;
-  } if (timeInSeconds < 86400) {
+  } if (timeInSeconds === 3600) {
+    return `1 h.`;
+  } if (timeInSeconds < 86400 & timeInSeconds % 3600 === 0) {
     const timeInHours = Math.round(timeInSeconds / 3600);
     return `${timeInHours} h.`;
+  }  if (timeInSeconds < 86400 & timeInSeconds % 3600 !== 0) {
+    const timeInHours = Math.trunc(timeInSeconds / 3600);
+    console.log(timeInSeconds/3600)
+    const timeInMinutes = Math.round(timeInSeconds / 60 - (timeInHours*60));
+    return `${timeInHours} h e ${timeInMinutes} min.`;
   } if (timeInSeconds < 604800) {
     const timeInDays = Math.round(timeInSeconds / 86400);
     return `${timeInDays} d.`;

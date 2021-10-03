@@ -8,8 +8,6 @@ import { Button } from '../../../components/Button/Button';
 import { getErrorCase } from '../../../services/general';
 import { getTotalOrderBill } from '../../../services/ordersMath';
 import { getAllOrders, deleteOrder } from '../../../services/orders';
-import { getUserById } from '../../../services/users';
-
 
 import '../ordersBeingPrepared/OrderStatusGeneral.scss'
 
@@ -25,26 +23,16 @@ export const OrdersDelivered = () => {
     Object.keys(data).includes('code') && setModal(true);
   }
 
-  getAllOrders(token)
-    .then(responseJson => {
-      handleAPIErrors(responseJson);
-        
-      const menu = (JSON.parse(localStorage.getItem('menu')));
-      getTotalOrderBill(responseJson, menu);
-       
-      responseJson.map((order) => 
-        getUserById(token, order.user_id)
-        .then((response) => {
-          order.waitress = response.name
-          setCurrentOrders(responseJson);
-        })
-      )       
-    });
-
   useEffect(() => {
-   getAllOrders(token)
+    getAllOrders(token)
+      .then(responseJson => {
+        handleAPIErrors(responseJson);        
+        const menu = (JSON.parse(localStorage.getItem('menu')));
+        getTotalOrderBill(responseJson, menu);
+        setCurrentOrders(responseJson);   
+      })
     },[token]);
-
+    
     useEffect(() => {
       setOrdersToPrint(currentOrders.filter((order) => order.status === 'Entregue'))
     },[currentOrders]);
