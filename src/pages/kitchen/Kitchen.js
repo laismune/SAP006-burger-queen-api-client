@@ -22,7 +22,7 @@ export const Kitchen = () => {
       Object.keys(data).includes('code') && setModal(true);
     }
 
-  useEffect(() => {
+  const getOrders = () => {
     getAllOrders(token)
       .then(responseJson => {
         handleAPIErrors(responseJson);        
@@ -30,7 +30,11 @@ export const Kitchen = () => {
         getTotalOrderBill(responseJson, menu);
         setCurrentOrders(responseJson);   
       })
-    },[token]);
+  }
+
+  useEffect(() => {
+    getOrders()
+  },[]);
         
   useEffect(() => {
     setOrdersToPrint(currentOrders)
@@ -72,7 +76,7 @@ export const Kitchen = () => {
         <header>
           <NavbarRoom/>
         </header>
-        <Button  ButtonClass='kitchen-get-orders' children='Carregar Pedidos' ButtonOnClick={() => getAllOrders(token)}/>
+        <Button  ButtonClass='kitchen-get-orders' children='Carregar Pedidos' ButtonOnClick={() => getOrders(token)}/>
         <main className='order-status-main'>
           <section className='current-orders-section'>
             {ordersToPrint.length > 0 &&   

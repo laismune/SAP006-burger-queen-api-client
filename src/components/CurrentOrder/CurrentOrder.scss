@@ -52,10 +52,10 @@
 }
 
 .current-order-all-products{
-  padding:1%;
+  padding:2%;
   background-color: $light-brown-order-bg;
   display: grid;
-  grid-template-columns: 1fr 3fr 1fr 1fr;
+  grid-template-columns: 0.4fr 5.5fr 1fr 1fr;
   grid-row-gap:2vh;
   grid-column-gap:3vh;
   justify-content: center;
@@ -105,6 +105,7 @@
 
 .current-order-order-bill{
   font-family: $berg-font;
+  font-size: 100%;
 }
 
 .modal-container{
@@ -117,7 +118,7 @@
   }
 
   .current-order-product-content{
-    font-size: 120%;
+    font-size: 100%;
   }
 
   .current-order-header-third{
@@ -139,7 +140,7 @@
   }
 
   .current-order-product-content{
-    font-size: 130%;
+    font-size: 100%;
   }
   
   .current-order-product-column-qtd, .current-order-product-column-flavor, .current-order-product-column-complement{
@@ -191,7 +192,7 @@
     }
 
     .current-order-product-content{
-      font-size: 150%;
+      font-size: 130%;
     }
     
     .current-order-product-column-qtd, .current-order-product-column-flavor, .current-order-product-column-complement{
@@ -200,10 +201,10 @@
       }
     }
 
-    .current-order-order-bill{
-      font-size: 120%;
-    }
-  
+  }
+
+  .current-order-order-bill{
+    font-size: 120%;
   }
 }
 
@@ -280,7 +281,7 @@
     }
   
     .current-order-product-content{
-      font-size: 130%;
+      font-size: 110%;
     }
   
     .current-order-header-third{

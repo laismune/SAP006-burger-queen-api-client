@@ -23,7 +23,7 @@ export const OrdersDelivered = () => {
     Object.keys(data).includes('code') && setModal(true);
   }
 
-  useEffect(() => {
+  const getOrders = () => {
     getAllOrders(token)
       .then(responseJson => {
         handleAPIErrors(responseJson);        
@@ -31,20 +31,24 @@ export const OrdersDelivered = () => {
         getTotalOrderBill(responseJson, menu);
         setCurrentOrders(responseJson);   
       })
-    },[token]);
+  }
+
+  useEffect(() => {
+    getOrders()
+  }, []);
     
-    useEffect(() => {
-      setOrdersToPrint(currentOrders.filter((order) => order.status === 'Entregue'))
-    },[currentOrders]);
+  useEffect(() => {
+    setOrdersToPrint(currentOrders.filter((order) => order.status === 'Entregue'))
+  },[currentOrders]);
     
-    const deleteTargetOrder = (orderToBeDeleted) => {
-      deleteOrder(orderToBeDeleted, token)
-      .then(responseJson => {
-        handleAPIErrors(responseJson);
-        const newOrders = currentOrders.filter((order) => order.id !== responseJson.id)
-        setCurrentOrders([...newOrders])
-      })
-    }
+  const deleteTargetOrder = (orderToBeDeleted) => {
+    deleteOrder(orderToBeDeleted, token)
+    .then(responseJson => {
+      handleAPIErrors(responseJson);
+      const newOrders = currentOrders.filter((order) => order.id !== responseJson.id)
+      setCurrentOrders([...newOrders])
+    });
+  }
 
   const [modal, setModal] = useState(false);
   const [modalContent, setModalContent] = useState({
@@ -61,7 +65,7 @@ export const OrdersDelivered = () => {
       <header>
         <NavbarRoom/>
       </header>
-      <Button  ButtonClass='kitchen-get-orders' children='Carregar Pedidos' ButtonOnClick={() => getAllOrders(token)}/>
+      <Button  ButtonClass='kitchen-get-orders' children='Carregar Pedidos' ButtonOnClick={() => getOrders(token)}/>
       <main className='order-status-main'>
         <section className='current-orders-section'>
           {ordersToPrint.length > 0 &&   
