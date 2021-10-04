@@ -28,12 +28,12 @@ Por vezes hamburgueria e, outras vezes, montanha 🍔 || ⛰️
 #### Portrait
 <div style="display: inline_block" >
   <p align="center">
-    <img src='./src/assets/images/result/login_portrait.png' width=300x/>
+    <img src='./src/assets/images/result/login_portait.png' width=300x/>
     <img src='./src/assets/images/result/register_portrait.png' width=300x/>
     <img src='./src/assets/images/result/room_portrait.png' width=300x/>
     <img src='./src/assets/images/result/menu_portrait.png' width=300x/>
     <img src='./src/assets/images/result/new_order_portrait.png' width=300x/>
-    <img src='./src/assets/images/result/table_portrait.png' width=300x/>
+    <img src='./src/assets/images/result/table_portait.png' width=300x/>
     <img src='./src/assets/images/result/delivered_portrait.png' width=300x/>
     <img src='./src/assets/images/result/kitchen_portrait.png' width=300x/>
    </p>
