@@ -53,7 +53,7 @@ No total, 11 telas diferentes compõem o BBAPP e podem ser acessadas conforme o 
 ---
 ## :art: Protótipos
 <p align='justify'>
-  As telas do BBAPP seguem o protótipo de alta fidelidade desenvolvido através do Figma. Em se tratando das cores, tons de marrom foram selecionados como base (background e fontes) enquanto que cores simples desempenham função de destaque (status dos pedidos e botões). 
+  As telas do BBAPP seguem o protótipo de alta fidelidade desenvolvido através do Figma. Em se tratando das cores, tons de marrom foram selecionados como base (background e fontes) enquanto que cores simples desempenham função de destaque (status dos pedidos e botões). Destaca-se que todas as ilustrações, bem como o logo, foram criados exclusivamente para este projeto na plataforma Canva.
 </p>
 
 #### Paleta de cores:
@@ -188,11 +188,39 @@ No total, 11 telas diferentes compõem o BBAPP e podem ser acessadas conforme o 
 
 ---
 ## :raising_hand_woman: Testes de Usabilidade
+ Testes de usabilidade realizados ao decorrer do projeto, com diferentes usuários, apontaram sugestões que foram incorporadas à este produto:
+* Indicação da página em que o usuário está;
+* Identificação de mesas já ocupadas na página de salão;
+* Indicar o período decorrido em cada ciclo do pedido;
+* Opção de ordenar os pedidos em ordem crescente ou decrescente (ainda não implementado).
 ---
 ## :robot: Tecnologias Utilizadas
+<div style="display: inline_block">
+  <img align="center" alt="Laís-Figma" height="30" width="40" src="https://github.com/devicons/devicon/blob/master/icons/figma/figma-original.svg">
+  <img align="center" alt="Laís-Canva" height="30" width="40" src="https://github.com/devicons/devicon/blob/master/icons/canva/canva-original.svg">
+  <img align="center" alt="Laís-VSCode" height="30" width="40" src="https://github.com/devicons/devicon/blob/master/icons/vscode/vscode-original.svg">
+  <img align="center" alt="Laís-Github" height="30" width="40" src="https://github.com/devicons/devicon/blob/master/icons/github/github-original.svg">
+  <img align="center" alt="Laís-Heroku" height="30" width="40" src="https://github.com/devicons/devicon/blob/master/icons/heroku/heroku-original.svg">
+  <img align="center" alt="Laís-NodeJs" height="30" width="40" src="https://github.com/devicons/devicon/blob/master/icons/nodejs/nodejs-original.svg">
+  <img align="center" alt="Laís-React" height="30" width="40" src="https://github.com/devicons/devicon/blob/master/icons/react/react-original.svg">
+  <img align="center" alt="Laís-Js" height="30" width="40" src="https://github.com/devicons/devicon/blob/master/icons/javascript/javascript-original.svg">
+  <img align="center" alt="Laís-HTML" height="30" width="40" src="https://github.com/devicons/devicon/blob/master/icons/html5/html5-original.svg">
+  <img align="center" alt="Laís-SASS" height="30" width="40" src="https://github.com/devicons/devicon/blob/master/icons/sass/sass-original.svg">
+</div>
+
+
+
 ---
 ## :open_file_folder: Estrutura dos Principais Arquivos
 ---
 ## :climbing_woman: Sobre a Desenvolvedora
+  <div>
+  <a href="https://instagram.com/laisayume" target="_blank"><img src="https://img.shields.io/badge/-Instagram-%23E4405F?style=for-the badge&logo=instagram&logoColor=white" target="_blank"></a>
+  <a href="https://www.linkedin.com/in/la%C3%ADs-ayume-lima-mune/" target="_blank"><img src="https://img.shields.io/badge/-LinkedIn-%230077B5?style=for-the-badge&logo=linkedin&logoColor=white" target="_blank"></a> 
+  <a href = "mailto:lais.mune@alumni.usp.br"><img src="https://img.shields.io/badge/-Gmail-%23333?style=for-the-badge&logo=gmail&logoColor=white" target="_blank"></a>
+  <a href = "mailto:aymune@hotmail.com"><img src="https://img.shields.io/badge/Microsoft_Outlook-0078D4?style=for-the-badge&logo=microsoft-outlook&logoColor=white" target="_blank"></a>
+  <a href="https://api.whatsapp.com/send?phone=5511989427817" target="_blank"><img src="https://img.shields.io/badge/WhatsApp-25D366?style=for-the-badge&logo=whatsapp&logoColor=white" target="_blank"></a>
+  </div>
+ 
 
 
