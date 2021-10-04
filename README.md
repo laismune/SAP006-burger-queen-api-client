@@ -212,6 +212,7 @@ No total, 11 telas diferentes compõem o BBAPP e podem ser acessadas conforme o 
 
 ---
 ## :open_file_folder: Estrutura dos Principais Arquivos
+```
 .
 ├── 📁 src
 |   ├── 📁 assets 
@@ -271,8 +272,21 @@ No total, 11 telas diferentes compõem o BBAPP e podem ser acessadas conforme o 
 |   |   |   |   └── 📄 Unauthorized.scss
 |   |   |   |   └── 📄 Unauthorized.js
 |   ├── 📁 routes
+|   |   └── 📁 containers
+|   |   └── 📁 Root
+|   |   └── 📁 utils
+|   |   └── 📁 routeComponents
+|   |   |   └── 📁 private
+|   |   |   └── 📁 public
 |   ├── 📁 services
+|   |   └── 📄 auth.js
+|   |   └── 📄 general.js
+|   |   └── 📄 gorders.js
+|   |   └── 📄 ordersMath.js
+|   |   └── 📄 products.js
+|   |   └── 📄 users.js
 |   ├── 📁 styles
+|   |   └── 📄 Global.scss
 |   ├── 📄 history.js
 |   ├── 📄 index.js
 |   ├── 📄 setupTests.js
@@ -282,6 +296,8 @@ No total, 11 telas diferentes compõem o BBAPP e podem ser acessadas conforme o 
 |   └── 📄 index.html
 ├── 📄 README.md
 ├── 📄 package.json
+
+```
 
 ---
 ## :climbing_woman: Sobre a Desenvolvedora
