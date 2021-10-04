@@ -87,13 +87,14 @@ No total, 11 telas diferentes compõem o BBAPP e podem ser acessadas conforme o 
  * Deletar Pedidos;
  * Limpar a mesa (deletar todos os pedidos da mesa);
  * Acessar a página de novo pedido, pedidos em preparo, pedidos prontos e pedidos entregues;
+ * Sair da aplicação.
 
 #### /menu:
  * Visualizar itens do cardápio;
  * Filtrar itens de acordo com a categoria;
  * Visualizar informações acerca do produto (ingredientes e respectiva origem);
  * Acessar a página principal, pedidos em preparo, pedidos prontos e pedidos entregues;
----
+ * Sair da aplicação.
 
 #### /neworder:
  * Visualizar itens do cardápio;
@@ -110,29 +111,81 @@ No total, 11 telas diferentes compõem o BBAPP e podem ser acessadas conforme o 
  * Voltar para o salão.
  
 #### /kitchen:
+* Visualizar todos os pedidos (ordem: pedidos --- mais antigos para mais recentes)
+* Carregar novos pedidos;
+* Deletar pedidos;
+* Acessar a página de pedidos em espera, pedidos prontos e pedidos entregues;
+* Sair da aplicação.All-da 
 
 #### /orders/being-prepared:
 * Visualizar pedidos que estão em situação de espera (ordem: pedidos --- mais antigos para mais recentes)
 * Carregar novos pedidos em situação de espera;
-* Deletar pedidos;
 * Apenas funcionários da cozinha podem alterar o status do produto para 'Pronto';
-* Acessar a página principal, pedidos prontos e pedidos entregues.
+* Acessar a página principal, pedidos prontos e pedidos entregues;
+* Sair da aplicação.
 
 #### /orders/ready:
 * Visualizar pedidos que estão em situação pronta (ordem: pedidos --- mais antigos para mais recentes)
 * Carregar novos pedidos em situação pronta;
 * Deletar pedidos;
 * Apenas funcionários do salão podem alterar o status do produto para 'Entregue';
-* Acessar a página principal, pedidos em preparo e pedidos entregues.
+* Acessar a página principal, pedidos em preparo e pedidos entregues;
+* Sair da aplicação.
  
 #### /orders/delivered:
 * Visualizar pedidos que estão em situação entregue (ordem: pedidos --- mais recentes para mais antigos)
 * Carregar novos pedidos em situação de entregue;
 * Deletar pedidos;
-* Acessar a página principal, pedidos em preparo e pedidos prontos.
+* Acessar a página principal, pedidos em preparo e pedidos prontos;
+* Sair da aplicação.
+
+#### /wrongadress
+* Visualizar mensagem de erro para página não encontrada --- erro 404;
+
+#### /unauthorized
+* Visualizar mensagem de erro para página com acesso restrito;
+* Voltar para a página principal;
+* Sair da aplicação.
  
 ---
 ## :woman_technologist: Como Utilizar
+<p align='justify'>
+  Em primeiro lugar, o usuário deve entrar no sistema do BBAPP. Caso o colaborador ainda não possui conta, este deve se direcionar até a página de registro e criá-la. Na hipótese em que o processo de autenticação encontre um erro, mensagens serão exibidas e os campos com informação inválida serão destacados. O sucesso da autenticação irá redirecionar o usuário para a sua página principal respectiva.
+</p>
+
+<p align='justify'>
+  Colaboradores do salão terão acesso às páginas de salão, menu, novos pedidos, pedidos em preparo, pedidos prontos e pedidos entregues. Na página de menu e de novo pedido, é possível filtrar os produtos de acordo com as suas categorias. A tabela a seguir apresenta a correspondência dos tipos de produtos:
+</p>
+
+  Categoria |  Correspondência   | 
+| :--------:|:------------------:|
+| Alles     | Todos os produtos  |         
+| Snacks    |  Aperitivos        |   
+| Burgers   | Hambúrguers        |
+| Drinken   | Bebidas            |   
+| Morgen    | Café da Manhã      |   
+| Dag       | Para o dia         |   
+  
+ <p align='justify'>
+  Na página de menu, ao clicar no símbolo de (+) na imagem de cada produto, um popup com informações acerca dos ingredientes e sua respectiva origem será aberto. É importante ressaltar ao usuário que todos os hambúrguers produzidos na BERG são baseados em planta e não possuem carne (animal). Além disso, também é possível visualizar o preço respectivo e a dispónibilidade de adicionar complementos aos produtos.
+</p>
+
+<p align='justify'>
+  Na página de novo pedido, as informações a respeito do produto, com exceção do valor (R$), não estão disponíveis. Entretanto, o usuário é capaz de visualizar o sabor e os adicionais disponíveis para cada qual de acordo com a imagem (vaca, galinha, porco e soja -- com ovo, com queijo ou sem adicional). Ao clicar sobre uma imagem, o produto é adicionado diretamente ao carrinho. Neste carrinho, é possível aumentar ou diminuir a quantidade do produto e até mesmo excluí-lo. Destaca-se que o usuário deve inserir o nome do cliente e o número da mesa. Caso a mesa já possuir pedidos à ela atrelados, uma mensgaem de alerta é exibida e o usuário poderá escolher entre inserir novos pedidos ou escolher outra mesa. Por fim, no caso de sucesso da operação, o colaborador será informado que as chefs já estão dando conta do pedido.
+</p>
+
+<p align='justify'>
+  Em se tratando da página principal do salão, o funcionário poderá visualizar o status de cada mesa. Mesas em verde estão livres, ou seja, não possuem pedidos. Por outro lado, as mesas em laranja já possuem ao menos um pedido. Ao clicar em mesas já ocupadas, o usuário irá se deparar com o resumo dos pedidos respectivos à cada mesa. Informações como: número da mesa, nome de cliente, número do pedido, status do pedido, responsável por criar o pedido, tempo decorrido desde a criação do pedido, tempo de duração de cada etapa do ciclo do pedido, quantidade de cada produto, nome do produto, sabor e complemento e valor total do pedido estarão disponíveis. Ainda nesta seção, é possível deletar pedidos (íncone de lixera) e limpar a mesa.
+</p>
+
+<p align='justify'>
+  Na cozinha é possível visualizar todos os pedidos já realizados (com exceção dos deletados), alterar o status dos pedidos e até excluí-los. Devido ao fato de que todos os status de pedidos estão disponíveis nesta página, aconselha-se es chefs manterem o controle dos pedidos a serem preparados e prontos na página de produos em preparo. As páginas de produtos em preparo, produtos prontos e produtos entregues, permitem a visualização de cada produto pertencente à cada estado respectivo. Nestas facilidades também é possível deletar pedidos e alterar status.
+</p>
+
+<p align='justify'>
+ Para sair da aplicação, basta clicar no íncone de porta que irá aparecer em quase todas as facilidades.
+</p>
+
 ---
 ## :raising_hand_woman: Testes de Usabilidade
 ---
