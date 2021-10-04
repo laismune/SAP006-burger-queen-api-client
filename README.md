@@ -50,7 +50,9 @@ Por vezes hamburgueria e, outras vezes, montanha 🍔 || ⛰️
 6. [Testes de Usabilidade](#raising_hand_woman-testes-de-usabilidade)
 7. [Tecnologias utilizadas](#robot-tecnologias-utilizadas)
 8. [Estrutura dos Principais Arquivos](#open_file_folder-estrutura-dos-principais-arquivos)
-10. [Sobre a desenvolvedora](#climbing_woman-sobre-a-desenvolvedora)
+9. [Resultados](#bar_chart-resultados)
+10. [Performance, Progressive Web App, Accessibility e Best Practices do Lighthouse](#woman_dancing-performance,-progressive-web-app-accessibility-e-best-practices-do-lighthouse)
+11. [Sobre a desenvolvedora](#climbing_woman-sobre-a-desenvolvedora)
 
 ---
 
@@ -346,6 +348,10 @@ No total, 11 telas diferentes compõem o BBAPP e podem ser acessadas conforme o 
 
 ```
 
+---
+## :bar_chart: Resultados
+---
+## :woman_dancing: Performance, Progressive Web App, Accessibility e Best Practices do Lighthouse
 ---
 ## :climbing_woman: Sobre a Desenvolvedora
   <div>
