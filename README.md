@@ -11,6 +11,35 @@ Por vezes hamburgueria e, outras vezes, montanha 🍔 || ⛰️
 
 #### [Berg Burger APP](https://bergburger.herokuapp.com/) - Projeto desenvolvido durante o Bootcamp de Desenvolvimento Front-End da SAP006 <LABORATÓRIA>.
 ---
+#### Landscape
+<div style="display: inline_block" >
+  <p align="center">
+    <img src='./src/assets/images/result/login.png' width=300x/>
+    <img src='./src/assets/images/result/register.png' width=300x/>
+    <img src='./src/assets/images/result/home.png' width=300x/>
+    <img src='./src/assets/images/result/menu.png' width=300x/>
+    <img src='./src/assets/images/result/new-order.png' width=300x/>
+    <img src='./src/assets/images/result/table.png' width=300x/>
+    <img src='./src/assets/images/result/being-prepared.png' width=300x/>
+    <img src='./src/assets/images/result/kitchen.png' width=300x/>
+   </p>
+</div>
+
+#### Portrait
+<div style="display: inline_block" >
+  <p align="center">
+    <img src='./src/assets/images/result/login_portrait.png' width=300x/>
+    <img src='./src/assets/images/result/register_portrait.png' width=300x/>
+    <img src='./src/assets/images/result/home_portrait.png' width=300x/>
+    <img src='./src/assets/images/result/menu_portrait.png' width=300x/>
+    <img src='./src/assets/images/result/new-order_portrait.png' width=300x/>
+    <img src='./src/assets/images/result/table_portrait.png' width=300x/>
+    <img src='./src/assets/images/result/being-prepared_portrait.png' width=300x/>
+    <img src='./src/assets/images/result/kitchen_portrait.png' width=300x/>
+   </p>
+</div>
+
+---
 
 ### ÍNDICE
 1. [Definição do Produto](#scroll-definição-do-produto)
@@ -219,6 +248,7 @@ No total, 11 telas diferentes compõem o BBAPP e podem ser acessadas conforme o 
   <img align="center" alt="Laís-Github" height="30" width="40" src="https://github.com/devicons/devicon/blob/master/icons/github/github-original.svg">
   <img align="center" alt="Laís-Heroku" height="30" width="40" src="https://github.com/devicons/devicon/blob/master/icons/heroku/heroku-original.svg">
   <img align="center" alt="Laís-NodeJs" height="30" width="40" src="https://github.com/devicons/devicon/blob/master/icons/nodejs/nodejs-original.svg">
+  <img src='./src/assets/images/swagger.png' height="30" width="80"/>
   <img align="center" alt="Laís-React" height="30" width="40" src="https://github.com/devicons/devicon/blob/master/icons/react/react-original.svg">
   <img align="center" alt="Laís-Js" height="30" width="40" src="https://github.com/devicons/devicon/blob/master/icons/javascript/javascript-original.svg">
   <img align="center" alt="Laís-HTML" height="30" width="40" src="https://github.com/devicons/devicon/blob/master/icons/html5/html5-original.svg">
