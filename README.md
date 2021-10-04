@@ -212,6 +212,77 @@ No total, 11 telas diferentes compõem o BBAPP e podem ser acessadas conforme o 
 
 ---
 ## :open_file_folder: Estrutura dos Principais Arquivos
+.
+├── 📁 src
+|   ├── 📁 assets 
+|   |   └── 📁 icons
+|   |   └── 📁 images
+|   |       └── 📁 images-buttons
+|   |       └── 📁 images-menu
+|   |       └── 📁 images-tables
+|   ├── 📁 components
+|   |   └── 📁 Button
+|   |   └── 📁 CurrentOrder
+|   |   └── 📁 ErrorMessages
+|   |   └── 📁 Header
+|   |   └── 📁 Modal
+|   |   └── 📁 Navbar
+|   |   └── 📁 NewOrderFilter
+|   |   └── 📁 NewOrderTextInput
+|   |   └── 📁 OrderHeaderDiv
+|   |   └── 📁 OrderListColumn
+|   |   └── 📁 OrderTimeSection
+|   |   └── 📁 ProductCard
+|   |   └── 📁 Table
+|   |   └── 📁 UserData
+|   ├── 📁 data
+|   |   └── 📄 products.js
+|   |   └── 📄 tables.js
+|   |   └── 📄 titleCorrespondance.js
+|   ├── 📁 pages
+|   |   └── 📁 auth
+|   |   |   └── 📄 Auth.scss
+|   |   |   └── 📄 Login.js
+|   |   |   └── 📄 Register.js
+|   |   └── 📁 kitchen
+|   |   |   └── 📄 Kitchen.scss
+|   |   |   └── 📄 Kitchen.js
+|   |   └── 📁 notFound
+|   |   |   └── 📄 NotFound.scss
+|   |   |   └── 📄 NotFound.js
+|   |   └── 📁 room
+|   |   |   └── 📁 menu
+|   |   |   |   └── 📄 Menu.scss
+|   |   |   |   └── 📄 Menu.js
+|   |   |   └── 📁 newOrder
+|   |   |   |   └── 📄 NewOrder.scss
+|   |   |   |   └── 📄 NewOrder.js
+|   |   |   └── 📁 ordersBeingPrepared
+|   |   |   |   └── 📄 OrderStatusGeneral.scss
+|   |   |   |   └── 📄 OrdersBeingPrepared.js
+|   |   |   └── 📁 ordersDelivered
+|   |   |   |   └── 📄 OrdersDelivered.js
+|   |   |   └── 📁 ordersReady
+|   |   |   |   └── 📄 OrdersRady.js
+|   |   |   └── 📁 room
+|   |   |   |   └── 📄 Room.scss
+|   |   |   |   └── 📄 Room.js
+|   |   └── 📁 unauthorized
+|   |   |   |   └── 📄 Unauthorized.scss
+|   |   |   |   └── 📄 Unauthorized.js
+|   ├── 📁 routes
+|   ├── 📁 services
+|   ├── 📁 styles
+|   ├── 📄 history.js
+|   ├── 📄 index.js
+|   ├── 📄 setupTests.js
+├── 📁 node_modules
+├── 📁 coverage
+├── 📁 public
+|   └── 📄 index.html
+├── 📄 README.md
+├── 📄 package.json
+
 ---
 ## :climbing_woman: Sobre a Desenvolvedora
   <div>
