@@ -16,7 +16,7 @@ Por vezes hamburgueria e, outras vezes, montanha 🍔 || ⛰️
   <p align="center">
     <img src='./src/assets/images/result/login.png' width=300x/>
     <img src='./src/assets/images/result/register.png' width=300x/>
-    <img src='./src/assets/images/result/home.png' width=300x/>
+    <img src='./src/assets/images/result/room.png' width=300x/>
     <img src='./src/assets/images/result/menu.png' width=300x/>
     <img src='./src/assets/images/result/new_order.png' width=300x/>
     <img src='./src/assets/images/result/table.png' width=300x/>
@@ -30,7 +30,7 @@ Por vezes hamburgueria e, outras vezes, montanha 🍔 || ⛰️
   <p align="center">
     <img src='./src/assets/images/result/login_portrait.png' width=300x/>
     <img src='./src/assets/images/result/register_portrait.png' width=300x/>
-    <img src='./src/assets/images/result/home_portrait.png' width=300x/>
+    <img src='./src/assets/images/result/room_portrait.png' width=300x/>
     <img src='./src/assets/images/result/menu_portrait.png' width=300x/>
     <img src='./src/assets/images/result/new_order_portrait.png' width=300x/>
     <img src='./src/assets/images/result/table_portrait.png' width=300x/>
