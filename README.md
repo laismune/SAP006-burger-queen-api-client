@@ -57,6 +57,15 @@ No total, 11 telas diferentes compõem o BBAPP e podem ser acessadas conforme o 
 
 ---
 ## :books: Histórias de Usuário
+<div style="display: inline_block" >
+  <p align="center">
+    <img src='./src/assets/images/UHI.png' width=350x/>
+    <img src='./src/assets/images/UHII.png' width=350x/>
+    <img src='./src/assets/images/UHIII.png' width=350x>
+    <img src='./src/assets/images/UHIV.png' width=350x/
+   </p>
+</div>
+
 ---
 ## :art: Protótipos
 <p align='justify'>
