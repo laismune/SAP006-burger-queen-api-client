@@ -69,7 +69,7 @@ export const OrdersDelivered = () => {
       <main className='order-status-main'>
         <section className='current-orders-section'>
           {ordersToPrint.length > 0 &&   
-            ordersToPrint.sort((a,b) => b.id - a.id).map((order) => 
+            ordersToPrint.sort((a,b) => a.id - b.id).map((order) => 
               <CurrentOrder
                 key={order.id}
                 order={order}
