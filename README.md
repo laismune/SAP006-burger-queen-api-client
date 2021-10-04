@@ -167,11 +167,11 @@ No total, 11 telas diferentes compõem o BBAPP e podem ser acessadas conforme o 
 | Dag       | Para o dia         |   
   
  <p align='justify'>
-  Na página de menu, ao clicar no símbolo de (+) na imagem de cada produto, um popup com informações acerca dos ingredientes e sua respectiva origem será aberto. É importante ressaltar ao usuário que todos os hambúrguers produzidos na BERG são baseados em planta e não possuem carne (animal). Além disso, também é possível visualizar o preço respectivo e a dispónibilidade de adicionar complementos aos produtos.
+  Na página de menu, ao clicar no símbolo de (+) na imagem de cada produto, um popup com informações acerca dos ingredientes e sua respectiva origem será aberto. É importante ressaltar que todos os hambúrguers produzidos na BERG são baseados em planta e não possuem carne (animal). Além disso, também é possível visualizar o preço e a dispónibilidade de adicionar complementos aos produtos.
 </p>
 
 <p align='justify'>
-  Na página de novo pedido, as informações a respeito do produto, com exceção do valor (R$), não estão disponíveis. Entretanto, o usuário é capaz de visualizar o sabor e os adicionais disponíveis para cada qual de acordo com a imagem (vaca, galinha, porco e soja -- com ovo, com queijo ou sem adicional). Ao clicar sobre uma imagem, o produto é adicionado diretamente ao carrinho. Neste carrinho, é possível aumentar ou diminuir a quantidade do produto e até mesmo excluí-lo. Destaca-se que o usuário deve inserir o nome do cliente e o número da mesa. Caso a mesa já possuir pedidos à ela atrelados, uma mensgaem de alerta é exibida e o usuário poderá escolher entre inserir novos pedidos ou escolher outra mesa. Por fim, no caso de sucesso da operação, o colaborador será informado que as chefs já estão dando conta do pedido.
+  Na página de novo pedido, as informações a respeito do produto, com exceção do valor (R$), não estão disponíveis. Entretanto, o usuário é capaz de visualizar o sabor e os adicionais disponíveis para cada qual de acordo com a imagem (vaca, galinha, porco e soja -- com ovo, com queijo ou sem adicional). Ao clicar sobre uma imagem, o produto é adicionado diretamente ao carrinho. Neste carrinho, é possível aumentar ou diminuir a quantidade do produto e até mesmo excluí-lo. Destaca-se que o usuário deve inserir o nome do cliente e o número da mesa. Caso a mesa já possua pedidos à ela atrelados, uma mensgaem de alerta é exibida e o usuário poderá escolher entre inserir novos pedidos ou escolher outra mesa. Por fim, no caso de sucesso da operação, o colaborador será informado que as chefs já estão dando conta do pedido.
 </p>
 
 <p align='justify'>
