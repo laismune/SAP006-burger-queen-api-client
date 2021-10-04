@@ -63,12 +63,12 @@ No total, 11 telas diferentes compõem o BBAPP e podem ser acessadas conforme o 
   As telas do BBAPP seguem o protótipo de alta fidelidade desenvolvido através do Figma. Em se tratando das cores, tons de marrom foram selecionados como base (background e fontes) enquanto que cores simples desempenham função de destaque (status dos pedidos e botões). Destaca-se que todas as ilustrações, bem como o logo, foram criados exclusivamente para este projeto na plataforma Canva.
 </p>
 
-<div style="display: inline_block">
-  Paleta de cores:
-  <img src='./src/assets/images/landscape.png'/>
-  
-  Protótipo de alta fidelidade:
+<div style="display: inline_block" >
+<p align="center">
+  <img src='./src/assets/images/portrait.jpg'/>
+
   <img src='./src/assets/images/prototipo.png'/>
+  </p>
 </div>
 
 ---
