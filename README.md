@@ -66,8 +66,7 @@ No total, 11 telas diferentes compõem o BBAPP e podem ser acessadas conforme o 
 <div style="display: inline_block" >
 <p align="center">
   <img src='./src/assets/images/portrait.jpg'/>
-
-  <img src='./src/assets/images/prototipo.png'/>
+  <img src='./src/assets/images/prototipo_white.png'/>
   </p>
 </div>
 
