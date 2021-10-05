@@ -355,7 +355,7 @@ No total, 11 telas diferentes compõem o BBAPP e podem ser acessadas conforme o 
    <img src='./src/assets/images/result/lighthouse.png' width=650x/>
  </p>
  <p align="justify">
-  O Berg Burger APP não atingiu o valor mínimo de 80% para acessibilidade. Contudo, considera-se que, na maior parte das vezes, o texto do botão está implícito na imagem. Desta forma, levanta-se a hipótese de que esta variável pode estar sendo subestimada nas análises realizadas.
+  O Berg Burger APP não atingiu o valor mínimo de 80% para acessibilidade. Contudo, considera-se que, na maior parte das vezes, o texto do botão está implícito na imagem. Isto posto, levanta-se a hipótese de que esta variável pode estar sendo subestimada nas análises realizadas.
  </p>
  
 ---
