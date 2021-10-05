@@ -30,7 +30,7 @@ export function NavbarRoom () {
         <ul>
           {employeRole === 'Salão' ? location === '/room' ? 
             <li> <Button ButtonClass='navbar-button navbar-button-menu' ButtonOnClick = {() => history.push('/menu')}/> </li> :
-            <li> <Button ButtonClass='navbar-button navbar-button-home' ButtonOnClick = {  () => history.push('/room')}/> </li> 
+            <li> <Button ButtonClass='navbar-button navbar-button-home' ButtonOnClick = {() => history.push('/room')}/> </li> 
             :  
             <li> <Button ButtonClass={location === '/kitchen' ? 'navbar-button navbar-button-home-gray' : 'navbar-button navbar-button-home'} ButtonOnClick = {  () => history.push('/kitchen')}/> </li>
           }

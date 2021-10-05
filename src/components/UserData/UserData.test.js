@@ -1,5 +1,5 @@
 import React from 'react';
-import { render, fireEvent, cleanup, userEvent } from '@testing-library/react';
+import { render, fireEvent, cleanup } from '@testing-library/react';
 import { InputContentUserData } from './UserData'
 import { InputRadioUserData } from './UserData'
 
@@ -105,46 +105,9 @@ describe('Testing the UserDataTextContent component', () => {
     expect(queryByTestId('button')).toHaveClass('auth-show-or-not-password-button auth-show-password-button')
   });
 
-  //userEvent é mais proximo do que fireEvent
-
-
-  //afterEach(() => {
-   /* jest.clearAllMocks();
-  });
-
-  it('Subjcet: password - Is a test where we want to mock useStatep', () => {
-    const setState = jest.fn();
-    const useStateMock = () => [showPassword, setShowPassword];
-  
-
-  
-    jest.spyOn(React, 'useState').mockImplementation(useStateMock);
-    const {getByRole} = render(
-      <InputContentUserData Subject='password' 
-      InputValue='test' 
-      InputOnChange = {(event) => event.target.value}
-    />);
-    fireEvent.click(getByRole('button'))
-   // userEvent.click(getByRole('button'))
-    expect(setState).toHaveBeenCalledTimes(1);
-});
-
-
-it('Subjcet: confirmPassword - Is a test where we want to mock useState', () => {
-  jest.spyOn(React, 'useState').mockImplementation(useStateMock);
-  const {queryByTestId} = render(
-    <InputContentUserData Subject='confirmPassword' 
-    InputValue='test' 
-    InputOnChange = {(event) => event.target.value}
-  />);
-  fireEvent.click(queryByTestId('button'))
-  expect(setState).toHaveBeenCalledTimes(1);
-});
-
-
 })
 
-*/
+
 describe('Testing the UserDataRadioContent component', () => {
   it('The UserDataRadio Div component should be rendered in the document.', () => {
     const {queryByTestId} = render(<InputRadioUserData Subject='test' InputOnChange = {(event) => event.target.value} InputChecked={false}/>);

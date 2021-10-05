@@ -8,7 +8,7 @@ export const OrderListColumn= ({ColumnName, ColumnContent, data, }) => {
       <p className='current-order-header-third'>{ColumnName}</p>
       {data.Products.map((product) => 
         <div className='current-order-product-content' key={product[ColumnContent]+ product.id.toString()}>
-          <span>{product[ColumnContent] === null ? '-' : product[ColumnContent]}</span>
+          <span data-testid='column-content'>{product[ColumnContent] === null ? '-' : product[ColumnContent]}</span>
         </div>
       )}
     </div>

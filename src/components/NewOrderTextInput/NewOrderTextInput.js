@@ -4,7 +4,7 @@ import React from 'react';
 export const NewOrderTextInput = ({Label, onChangeInput}) => { 
 
   return (
-    <div>
+    <div data-testid='new-order-text-input'>
       <label>{Label}&nbsp;&nbsp;</label>
       <input 
         className='table-input' 
