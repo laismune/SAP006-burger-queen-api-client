@@ -351,6 +351,13 @@ No total, 11 telas diferentes compõem o BBAPP e podem ser acessadas conforme o 
 
 ---
 ## :woman_dancing: Performance, Progressive Web App, Accessibility e Best Practices do Lighthouse
+ <p align="center">
+   <img src='./src/assets/images/result/lighthouse.png' width=650x/>
+ </p>
+ <p align="justify">
+  O Berg Burger APP não atingiu o valor mínimo de 80% para acessibilidade. Contudo, considera-se que, na maior parte das vezes, o texto do botão está implícito na imagem. Desta forma, levanta-se a hipótese de que esta variável pode estar sendo subestimada nas análises realizadas.
+ </p>
+ 
 ---
 ## :climbing_woman: Sobre a Desenvolvedora
   <div>
