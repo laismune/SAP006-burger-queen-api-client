@@ -11,35 +11,6 @@ Por vezes hamburgueria e, outras vezes, montanha 🍔 || ⛰️
 
 #### [Berg Burger APP](https://bergburger.herokuapp.com/) - Projeto desenvolvido durante o Bootcamp de Desenvolvimento Front-End da SAP006 <LABORATÓRIA>.
 ---
-#### Landscape
-<div style="display: inline_block" >
-  <p align="center">
-    <img src='./src/assets/images/result/login.png' width=300x/>
-    <img src='./src/assets/images/result/register.png' width=300x/>
-    <img src='./src/assets/images/result/room.png' width=300x/>
-    <img src='./src/assets/images/result/menu.png' width=300x/>
-    <img src='./src/assets/images/result/new_order.png' width=300x/>
-    <img src='./src/assets/images/result/table.png' width=300x/>
-    <img src='./src/assets/images/result/delivered.png' width=300x/>
-    <img src='./src/assets/images/result/kitchen.png' width=300x/>
-   </p>
-</div>
-
-#### Portrait
-<div style="display: inline_block" >
-  <p align="center">
-    <img src='./src/assets/images/result/login_portait.png' width=300x/>
-    <img src='./src/assets/images/result/register_portrait.png' width=300x/>
-    <img src='./src/assets/images/result/room_portrait.png' width=300x/>
-    <img src='./src/assets/images/result/menu_portrait.png' width=300x/>
-    <img src='./src/assets/images/result/new_order_portrait.png' width=300x/>
-    <img src='./src/assets/images/result/table_portait.png' width=300x/>
-    <img src='./src/assets/images/result/delivered_portrait.png' width=300x/>
-    <img src='./src/assets/images/result/kitchen_portrait.png' width=300x/>
-   </p>
-</div>
-
----
 
 ### ÍNDICE
 1. [Definição do Produto](#scroll-definição-do-produto)
@@ -51,7 +22,7 @@ Por vezes hamburgueria e, outras vezes, montanha 🍔 || ⛰️
 7. [Tecnologias utilizadas](#robot-tecnologias-utilizadas)
 8. [Estrutura dos Principais Arquivos](#open_file_folder-estrutura-dos-principais-arquivos)
 9. [Resultados](#bar_chart-resultados)
-10. [Performance, Progressive Web App, Accessibility e Best Practices do Lighthouse](#woman_dancing-performance,-progressive-web-app-accessibility-e-best-practices-do-lighthouse)
+10. [Performance, Progressive Web App, Accessibility e Best Practices do Lighthouse](#woman_dancing-performance-progressive-web-app-accessibility-e-best-practices-do-lighthouse)
 11. [Sobre a desenvolvedora](#climbing_woman-sobre-a-desenvolvedora)
 
 ---
@@ -350,6 +321,34 @@ No total, 11 telas diferentes compõem o BBAPP e podem ser acessadas conforme o 
 
 ---
 ## :bar_chart: Resultados
+#### Landscape
+<div style="display: inline_block" >
+  <p align="center">
+    <img src='./src/assets/images/result/login.png' width=300x/>
+    <img src='./src/assets/images/result/register.png' width=300x/>
+    <img src='./src/assets/images/result/room.png' width=300x/>
+    <img src='./src/assets/images/result/menu.png' width=300x/>
+    <img src='./src/assets/images/result/new_order.png' width=300x/>
+    <img src='./src/assets/images/result/table.png' width=300x/>
+    <img src='./src/assets/images/result/delivered.png' width=300x/>
+    <img src='./src/assets/images/result/kitchen.png' width=300x/>
+   </p>
+</div>
+
+#### Portrait
+<div style="display: inline_block" >
+  <p align="center">
+    <img src='./src/assets/images/result/login_portait.png' width=300x/>
+    <img src='./src/assets/images/result/register_portrait.png' width=300x/>
+    <img src='./src/assets/images/result/room_portrait.png' width=300x/>
+    <img src='./src/assets/images/result/menu_portrait.png' width=300x/>
+    <img src='./src/assets/images/result/new_order_portrait.png' width=300x/>
+    <img src='./src/assets/images/result/table_portait.png' width=300x/>
+    <img src='./src/assets/images/result/delivered_portrait.png' width=300x/>
+    <img src='./src/assets/images/result/kitchen_portrait.png' width=300x/>
+   </p>
+</div>
+
 ---
 ## :woman_dancing: Performance, Progressive Web App, Accessibility e Best Practices do Lighthouse
 ---
