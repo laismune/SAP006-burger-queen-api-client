@@ -13,7 +13,6 @@ export const CurrentOrder = ({role, order, ButtonDeleteOrder, OrderReadyButton, 
   const [waitress, setWaitress] = useState('');
   const token = localStorage.getItem('currentEmployeeToken');
 
-  
   useEffect (() => {
       getUserById(token, order.user_id)
       .then((responseJson) => setWaitress(responseJson.name));
