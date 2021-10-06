@@ -83,6 +83,7 @@ export const OrdersReady = () => {
           {ordersToPrint.length > 0 &&   
             ordersToPrint.sort((a,b) => b.id - a.id).map((order) => 
               <CurrentOrder
+                role = {localStorage.getItem('currentEmployeeRole')}
                 key={order.id}
                 order={order}
                 ButtonId={order.id}

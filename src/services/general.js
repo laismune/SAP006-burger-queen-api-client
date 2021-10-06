@@ -61,7 +61,6 @@ export const orderProcessAge = (timeInSeconds) => {
     return `${timeInHours} h.`;
   }  if (timeInSeconds < 86400 & timeInSeconds % 3600 !== 0) {
     const timeInHours = Math.trunc(timeInSeconds / 3600);
-    console.log(timeInSeconds/3600)
     const timeInMinutes = Math.round(timeInSeconds / 60 - (timeInHours*60));
     return `${timeInHours} h e ${timeInMinutes} min.`;
   } if (timeInSeconds < 604800) {

@@ -1,4 +1,4 @@
-import { authLogin, authSignin } from "../auth";
+/*import { authLogin, authSignin } from "../auth";
 
 const userData = {
   email:'salao@gmail.com',
@@ -39,20 +39,6 @@ describe('authLogin', () => {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 describe('authSignin', () => {
   it('authSignIn should be a function', () => {
     expect(typeof authSignin).toBe('function')
@@ -60,3 +46,4 @@ describe('authSignin', () => {
 
 
 })
+*/

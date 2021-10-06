@@ -50,9 +50,19 @@ describe('orderAge', () => {
     expect(result).toBe('há 2 min.')
   })
 
+  it('when time in seconds = 3600, the result should be "há 1 h."', () => {
+    const result = orderAge(3600)
+    expect(result).toBe('há 1 h.')
+  })
+
+  it('when time in seconds = 7200, the result should be "há 2 h."', () => {
+    const result = orderAge(7200)
+    expect(result).toBe('há 2 h.')
+  })
+
   it('when time in seconds = 80000, the result should be "há 22 h."', () => {
     const result = orderAge(80000)
-    expect(result).toBe('há 22 h.')
+    expect(result).toBe('há 22 h e 13 min.')
   })
 
   it('when time in seconds = 320000, the result should be "há 4 d."', () => {
@@ -87,7 +97,6 @@ describe('orderAge', () => {
   
 })
 
-
 describe('orderProcessAge', () => {
   it('orderProcessAge should be a function', () => {
     expect(typeof orderProcessAge).toBe('function')
@@ -108,9 +117,19 @@ describe('orderProcessAge', () => {
     expect(result).toBe('2 min.')
   })
 
+  it('when time in seconds = 3600, the result should be "1 h."', () => {
+    const result = orderProcessAge(3600)
+    expect(result).toBe('1 h.')
+  })
+
+  it('when time in seconds = 7200, the result should be "2 h."', () => {
+    const result = orderProcessAge(7200)
+    expect(result).toBe('2 h.')
+  })
+
   it('when time in seconds = 80000, the result should be "22 h."', () => {
     const result = orderProcessAge(80000)
-    expect(result).toBe('22 h.')
+    expect(result).toBe('22 h e 13 min.')
   })
 
   it('when time in seconds = 320000, the result should be "4 d."', () => {

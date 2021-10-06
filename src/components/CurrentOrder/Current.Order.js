@@ -9,10 +9,10 @@ import { getUserById } from '../../services/users'
 
 import './CurrentOrder.scss';
 
-export const CurrentOrder = ({order, ButtonDeleteOrder, OrderReadyButton, OrderDeliveredButton }) => { 
+export const CurrentOrder = ({role, order, ButtonDeleteOrder, OrderReadyButton, OrderDeliveredButton }) => { 
   const [waitress, setWaitress] = useState('');
   const token = localStorage.getItem('currentEmployeeToken');
-  const role = localStorage.getItem('currentEmployeeRole');
+
   
   useEffect (() => {
       getUserById(token, order.user_id)
@@ -20,7 +20,7 @@ export const CurrentOrder = ({order, ButtonDeleteOrder, OrderReadyButton, OrderD
   })
  
   return (
-    <div className= {
+    <div data-testid = 'current-order-div' className= {
       (order.status === 'Em Preparo' || order.status === 'pending') 
       ? 'current-order-div order-being-prepared-div'
       : order.status === 'Pronto' 

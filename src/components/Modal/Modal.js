@@ -37,6 +37,7 @@ export const TableOrdersModal = ({orders, FirstButtonClick,  OrderDeliveredButto
           {orders.length > 0 && 
             orders.sort((a,b) => a.createdAt - b.createdAt).map((order) => 
             <CurrentOrder
+              role = {localStorage.getItem('currentEmployeeRole')}
               Location='room-tables-orders'
               key={order.createdAt}
               order={order}
