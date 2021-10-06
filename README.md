@@ -32,7 +32,7 @@ Por vezes hamburgueria e, outras vezes, montanha 🍔 || ⛰️
 O nome Berg une duas grandes paixões da vida: escalada 🧗‍♀️ e a língua neerlandesa 🇳🇱. A palavra Berg em holandês significa montanha e esta, quando soletrada, remete quase que instantaneamente à burger. 
 </p>
 <p align='justify'>
-A Hamburgueria vegetariana Berg, criada em 2021, viu a sua demanda crescer de forma exponencial em poucos meses. As anotações em blocos de papel começaram a dificultar a organização dos funcionários, bem como a dinâmica do restaurante. Neste contexto, surge o desenvolvido com o objetivo de facilitar e padronizar o gerenciamento dos pedidos através da tela de um tablet.
+A Hamburgueria vegetariana Berg, criada em 2021, viu a sua demanda crescer de forma exponencial em poucos meses. As anotações em blocos de papel começaram a dificultar a organização dos funcionários, bem como a dinâmica do restaurante. Neste contexto, surge Berg Burger APP o desenvolvido com o objetivo de facilitar e padronizar o gerenciamento dos pedidos através da tela de um tablet.
 </p>
 <p align='justify'>
 A primeira Berg Burger APP (BBAPP) está disponível para tablets -- dimensões de 768px ou 1024px -- orientados como retrato ou paisagem, permitindo que o usuário escolha o formato que melhor lhe agrada. No mais, as cores do BBAPP foram selecionadas e aplicadas de forma minuciosa de modo a torná-lo intuitivo e prático.
