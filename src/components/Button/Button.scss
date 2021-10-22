@@ -692,3 +692,22 @@
   }
 
 }
+
+
+@media (min-width: 1200px) {
+  .register-content{
+    .auth-submit-form-button{
+      margin-top: -1%;
+    }
+  }
+
+  .room-div{
+    .room-new-order-button{
+      padding: 1%;
+    }
+  }
+
+  .kitchen-get-orders{
+    padding: 1%;
+  }
+}

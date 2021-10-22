@@ -46,3 +46,14 @@
     grid-column-gap:4vh;
   }
 }
+
+
+@media (min-width: 1200px) {
+  .room-tables-section {
+    position:absolute;
+    top: 25%;
+    right: 6%;
+    bottom: 5%;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+  }
+}

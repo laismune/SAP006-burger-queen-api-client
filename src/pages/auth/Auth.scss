@@ -98,3 +98,35 @@
     font-size: 120%;
   }
 }
+
+@media (min-width: 1200px) {
+
+  .login-and-register-content{
+    justify-content: space-between;
+  }
+
+  .auth-content-div{
+    width: 50%;
+    position: absolute;
+    right: 5%;
+    bottom: 2%;
+  }
+
+  .login-content {
+    .auth-logo-landscape{
+      position: absolute;
+      left: 5%;
+      top: 70%;
+    }
+  }
+
+  .register-content {
+    .auth-logo-landscape{
+      position: absolute;
+      left: 11%;
+      top: 55%;
+    }
+  }
+
+}
+

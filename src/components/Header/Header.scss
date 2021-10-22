@@ -21,4 +21,17 @@
   }
 }
 
+@media (min-width: 1200px) {
+  .auth-welcome {
+  margin-bottom: 80%;
+  margin-left: 30%;
+  }
+
+  .register-content {
+    .auth-welcome {
+      margin-top: -25%;
+    }
+  }
+
+}
 

@@ -59,3 +59,9 @@ button {
   cursor: pointer;
   background-repeat: no-repeat;
 }
+
+@media (min-width: 1200px) {
+  body, #root{
+    overflow: auto;
+  }
+}
